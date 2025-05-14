@@ -1,0 +1,68 @@
+import React from "react";
+import HomePageSideImage from "./HomePageSideImage";
+import { Box, Button, Image, Stack } from "@chakra-ui/react";
+import BrandLogos from "./BrandLogos";
+
+export default function HomePageBanner() {
+  return (
+    <Box w={"100%"}>
+      <Stack
+        direction={"row"}
+        w={"85%"}
+        justifyContent={"center"}
+        mx={"auto"}
+        gap={10}
+      >
+        <HomePageSideImage image={"./image 2 28.png"} />
+        <Stack
+          height={"700px"}
+          width={"426px"}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+        >
+          <Image src="./images.png" />
+          <Stack alignItems={"center"} gap={5}>
+            <Image src="./ULTIMATE.png" width={"395px"} />
+            <Image src="./sale.png" width={"395px"} height={185} />
+            <Image src="./NEW COLLECTION.png" width={"195px"} />
+            <Button
+              color={"white"}
+              backgroundColor={"black"}
+              w={207}
+              h={50}
+              rounded={10}
+              boxShadow={"md"}
+            >
+              Shop Now
+            </Button>
+          </Stack>
+          <Image src="./imagesbottom.png" height={150} />
+        </Stack>
+        <HomePageSideImage image={"./image 227.png"} />
+      </Stack>
+      <Stack direction={"row"} right={10} bottom={5} position={"fixed"}>
+        <Button
+          backgroundColor={"black"}
+          w={"56px"}
+          h={"56px"}
+          rounded={10}
+          boxShadow={"md"}
+          borderColor={"black"}
+          borderWidth={"1px"}
+        >
+          <Image height={21} width={22} src="./iconcart.png" />
+        </Button>
+        <Button
+          backgroundColor={"white"}
+          w={50}
+          h={50}
+          rounded={50}
+          borderWidth={2}
+          borderColor={"black"}
+        >
+          <Image height={26} width={22} src="./VectorArrowUp.png" />
+        </Button>
+      </Stack>
+    </Box>
+  );
+}
