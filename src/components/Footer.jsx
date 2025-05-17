@@ -24,11 +24,15 @@ export default function Footer() {
   return (
     <Box width={"90%"} marginTop={100}>
       <HStack w={"100%"} marginBottom={50}>
-        <Image height={"745px"} src="./image 2.png" />
+        <Image
+          display={{ base: "none", lg: "block" }}
+          height={"745px"}
+          src="./image 2.png"
+        />
         <Stack
-          width={"60%"}
+          width={{ lg: "60%", base: "100%" }}
           textAlign={"center"}
-          height={"330px"}
+          height={{ lg: "330px", base: "auto" }}
           gap={5}
           alignItems={"center"}
         >
@@ -68,7 +72,11 @@ export default function Footer() {
             Subscribe Now
           </Button>
         </Stack>
-        <Image height={"745px"} src="./image 3.png" />
+        <Image
+          display={{ base: "none", lg: "block" }}
+          height={"745px"}
+          src="./image 3.png"
+        />
       </HStack>
       <hr />
       <Stack justifyContent={"space-between"} height={135}>

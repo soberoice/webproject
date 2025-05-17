@@ -23,8 +23,12 @@ export default function HomePageBanner() {
           <Image src="./images.png" />
           <Stack alignItems={"center"} gap={5}>
             <Image src="./ULTIMATE.png" width={"395px"} />
-            <Image src="./sale.png" width={"395px"} height={185} />
-            <Image src="./NEW COLLECTION.png" width={"195px"} />
+            <Image
+              src="./sale.png"
+              width={{ lg: "395px", base: "100%" }}
+              height={185}
+            />
+            <Image src="./NEW COLLECTION.png" width={"195px"} rounded={10} />
             <Button
               color={"white"}
               backgroundColor={"black"}
@@ -40,7 +44,13 @@ export default function HomePageBanner() {
         </Stack>
         <HomePageSideImage image={"./image 227.png"} />
       </Stack>
-      <Stack direction={"row"} right={10} bottom={5} position={"fixed"}>
+      <Stack
+        direction={"row"}
+        right={10}
+        bottom={5}
+        position={"fixed"}
+        zIndex={100}
+      >
         <Button
           backgroundColor={"black"}
           w={"56px"}

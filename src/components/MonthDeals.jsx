@@ -31,13 +31,17 @@ export default function MonthDeals() {
 
   return (
     <Stack
-      direction={"row"}
+      direction={{ lg: "row", base: "column" }}
       width={"100%"}
-      paddingLeft={100}
-      marginTop={50}
+      paddingLeft={{ lg: 100, base: "auto" }}
+      marginY={100}
       gap={10}
+      alignItems={"center"}
     >
-      <Stack width={"35%"} justifyContent={"space-between"}>
+      <Stack
+        width={{ lg: "35%", base: "80%" }}
+        justifyContent={"space-between"}
+      >
         <Stack height={"250px"} justifyContent={"space-between"}>
           <Text
             color={"#484848"}
@@ -89,7 +93,12 @@ export default function MonthDeals() {
         </HStack>
       </Stack>
 
-      <HStack marginRight={-10} width={"80%"} overflow={"hidden"} gap={5}>
+      <HStack
+        width={{ lg: "80%", base: "80%" }}
+        overflow={"hidden"}
+        gap={5}
+        justifyContent={"center"}
+      >
         <AnimatePresence mode="wait">
           <MotionImage
             key={images[active]}
@@ -104,7 +113,11 @@ export default function MonthDeals() {
           />
         </AnimatePresence>
 
-        <Stack height="580px" justifyContent="space-between">
+        <Stack
+          height="580px"
+          display={{ lg: "flex", base: "none" }}
+          justifyContent="space-between"
+        >
           <Stack direction="row" gap={5}>
             {images.map(
               (image, index) =>
@@ -129,6 +142,8 @@ export default function MonthDeals() {
           <HStack>
             {Array.from({ length: 3 }).map((_, index) => (
               <Box
+                onClick={() => setActive(index)}
+                key={index}
                 style={{
                   height: 10,
                   width: 10,

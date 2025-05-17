@@ -5,6 +5,12 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import NavBar from "./components/NavBar";
 import SignUp from "./Pages/SignUp";
 import SignIn from "./Pages/SignIn";
+import SignInForm from "./components/SignInForm";
+import ForgotPassward from "./components/ForgotPassward";
+import EnterCode from "./components/EnterCode";
+import Shop from "./Pages/Shop";
+import UpdatePassward from "./components/UpdatePassward";
+import ProductPage from "./Pages/ProductPage";
 
 function App() {
   return (
@@ -14,7 +20,14 @@ function App() {
           <Routes>
             <Route path="/" exact element={<HomePage />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/signin" element={<SignIn />}>
+              <Route path="" exact element={<SignInForm />} />
+              <Route path="forgotpassward" exact element={<ForgotPassward />} />
+              <Route path="entercode" exact element={<EnterCode />} />
+              <Route path="resetpassward" exact element={<UpdatePassward />} />
+            </Route>
+            <Route path="/product" element={<ProductPage />} />
           </Routes>
         </BrowserRouter>
       </Box>

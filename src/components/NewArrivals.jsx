@@ -13,8 +13,12 @@ export default function NewArrivals() {
   ];
   const [active, setActive] = useState("Men’s Fashion");
   return (
-    <Stack width={"80%"} alignItems={"center"} marginTop={70}>
-      <Stack width={"50%"} alignItems={"center"} marginBottom={50}>
+    <Stack width={"80%"} alignItems={"center"} marginY={100}>
+      <Stack
+        width={{ lg: "50%", base: "100%" }}
+        alignItems={"center"}
+        marginBottom={50}
+      >
         <Text
           color={"#484848"}
           fontWeight={"400"}
@@ -38,6 +42,7 @@ export default function NewArrivals() {
         w={"100%"}
         marginBottom={50}
         fontFamily="'Poppins', sans-serif"
+        flexWrap={"wrap"}
       >
         {buttons.map((btn) => (
           <Button

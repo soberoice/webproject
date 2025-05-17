@@ -16,6 +16,7 @@ export default function BrandLogos() {
       width={"85%"}
       height={"200px"}
       flexWrap={"wrap"}
+      marginY={100}
     >
       {logos.map((logo) => (
         <Image src={logo} />

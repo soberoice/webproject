@@ -29,7 +29,13 @@ export default function Testimonials() {
     },
   ];
   return (
-    <Box w="80%" pb={10} textAlign={"center"} marginTop={100}>
+    <Box
+      w="80%"
+      pb={10}
+      textAlign={"center"}
+      marginTop={100}
+      marginBottom={100}
+    >
       <Text color={"#484848"} fontSize={"46px"} fontFamily="'Volkhov', serif">
         This Is What Our Customers Say
       </Text>
@@ -43,8 +49,8 @@ export default function Testimonials() {
       </Text>
       <HStack width={"100%"} justifyContent={"center"}>
         <Stack
-          width={"55%"}
-          height={"350px"}
+          width={{ lg: "55%", base: "100%" }}
+          height={{ lg: "350px", base: "175px" }}
           alignItems={"center"}
           direction={"row"}
           boxShadow="0px 10px 20px rgba(0, 0, 0, 0.1)"

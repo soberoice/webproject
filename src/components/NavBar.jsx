@@ -4,39 +4,39 @@ import "@fontsource/poppins/400.css";
 
 export default function NavBar() {
   const navItems = [
-    { name: "Home", link: "/signin" },
-    { name: "Deals", link: "/signin" },
-    { name: "New Arrivals", link: "/signin" },
-    { name: "package", link: "/signin" },
+    { name: "Home", link: "/" },
+    { name: "Shop", link: "/shop" },
+    { name: "Products", link: "/signin" },
+    { name: "Pages", link: "/signin" },
     { name: "Sign in", link: "/signin" },
   ];
   return (
     <Box mx={"auto"} w={"80%"} pt={5} fontFamily="'Poppins', sans-serif">
-      <HStack justify={"space-between"}>
+      <HStack widows={"100%"} justify={"space-between"}>
         <Box>
           <Image src="../FASCO.png" />
         </Box>
-        <HStack gap={10}>
+        <HStack display={{ lg: "flex", base: "none" }} gap={10}>
           {navItems.map((item) => (
-            <Link href={item.link}>
+            <Link href={item.link} focusRing={"none"}>
               <Text color={"#484848"} fontSize={"16px"} fontWeight="400">
                 {item.name}
               </Text>
             </Link>
           ))}
-          <Link href="/signup">
-            <Button
-              color={"white"}
-              backgroundColor={"black"}
-              w={150}
-              h={50}
-              rounded={10}
-              boxShadow={"md"}
-            >
-              Sign Up
-            </Button>
-          </Link>
         </HStack>
+        <Link href="/signup">
+          <Button
+            color={"white"}
+            backgroundColor={"black"}
+            w={150}
+            h={50}
+            rounded={10}
+            boxShadow={"md"}
+          >
+            Sign Up
+          </Button>
+        </Link>
       </HStack>
     </Box>
   );

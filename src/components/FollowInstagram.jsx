@@ -6,15 +6,20 @@ import "@fontsource/volkhov/400.css";
 export default function FollowInstagram() {
   const images = [
     "image.png",
-    "image-3.png",
-    "image-1.png",
     "image-2.png",
     "image-5.png",
+    "image-3.png",
+    "image-6.png",
     "image-4.png",
+    "image-1.png",
   ];
   return (
-    <Stack alignItems={"center"} marginTop={100} gap={10}>
-      <VStack width={"45%"} textAlign={"center"}>
+    <Stack alignItems={"center"} marginTop={100} marginBottom={100} gap={10}>
+      <VStack
+        width={{ lg: "45%", base: "100%" }}
+        textAlign={"center"}
+        marginBottom={50}
+      >
         <Text fontFamily="'Volkhov', serif" color={"#484848"} fontSize={"46px"}>
           Follow Us On Instagram
         </Text>
@@ -26,7 +31,7 @@ export default function FollowInstagram() {
       </VStack>
       <HStack gap={0}>
         {images.map((img) => (
-          <Image src={img} />
+          <Image maxW={"14.3%"} minHeight={"280px"} src={img} />
         ))}
       </HStack>
     </Stack>

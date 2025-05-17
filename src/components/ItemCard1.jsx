@@ -27,9 +27,9 @@ export default function ItemCard1() {
           fontFamily="'Poppins', sans-serif"
           shadowColor={"#ebe8e8"}
           alignItems={"center"}
+          width={{ lg: 380, base: "100%" }}
           style={{
             height: 440,
-            width: 380,
             backgroundColor: "white",
             borderRadius: 10,
             marginHorizontal: 2,
@@ -38,7 +38,10 @@ export default function ItemCard1() {
           justifyContent={"space-evenly"}
         >
           <Image src="./Images (2).png" width={"335px"} />
-          <HStack justifyContent={"space-between"} w={"335px"}>
+          <HStack
+            justifyContent={"space-between"}
+            w={{ lg: "335px", base: "100%" }}
+          >
             <Stack gap={0}>
               <Text color={"#484848"} fontSize={"20px"} fontWeight={"500"}>
                 Long Dress
@@ -58,12 +61,15 @@ export default function ItemCard1() {
           <Text
             color={"#484848"}
             fontSize={"12px"}
-            w={"335px"}
+            w={{ lg: "335px", base: "100%" }}
             fontWeight={"500"}
           >
             (4.1k) Customer Reviews
           </Text>
-          <HStack justifyContent={"space-between"} w={"335px"}>
+          <HStack
+            justifyContent={"space-between"}
+            w={{ lg: "335px", base: "100%" }}
+          >
             <Text color={"#484848"} fontSize={"24px"} fontWeight={"500"}>
               $95.50
             </Text>

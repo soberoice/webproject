@@ -183,7 +183,9 @@ export default function SignUp() {
             <Text color={"#000"} fontFamily="'Poppins', sans-serif">
               Already have an account?
             </Text>
-            <Link color={"#5B86E5"}>Login</Link>
+            <Link color={"#5B86E5"} href="/signin">
+              Login
+            </Link>
           </HStack>
         </VStack>
       </Stack>

@@ -9,6 +9,7 @@ export default function HomePageSideImage({ image }) {
       width={390}
       alignItems={"center"}
       rounded={10}
+      display={{ lg: "flex", base: "none" }}
     >
       <Image height={"570px"} src={image} mx={"auto"} marginTop={"auto"} />
     </Stack>
