@@ -1,8 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import HomePage from "./Pages/HomePage";
 import { Provider } from "./components/ui/provider";
-import { BrowserRouter, Route, Routes } from "react-router";
-import NavBar from "./components/NavBar";
 import SignUp from "./Pages/SignUp";
 import SignIn from "./Pages/SignIn";
 import SignInForm from "./components/SignInForm";
@@ -11,6 +9,7 @@ import EnterCode from "./components/EnterCode";
 import Shop from "./Pages/Shop";
 import UpdatePassward from "./components/UpdatePassward";
 import ProductPage from "./Pages/ProductPage";
+import { BrowserRouter, Route, Routes } from "react-router";
 
 function App() {
   return (
