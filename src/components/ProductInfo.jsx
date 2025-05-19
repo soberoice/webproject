@@ -5,6 +5,7 @@ import {
   IconButton,
   Image,
   NumberInput,
+  RatingGroup,
   Stack,
   Text,
   VStack,
@@ -75,10 +76,16 @@ export default function ProductInfo() {
             <IoStarOutline cursor={"pointer"} color="black" size={"18"} />
           </HStack>
           <HStack>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <IoStarSharp key={index} color="black" size={15} />
-            ))}
-            <Text color={"black"}>(3)</Text>
+            <RatingGroup.Root
+              colorPalette={"red"}
+              readOnly
+              count={5}
+              defaultValue={5}
+              size="sm"
+            >
+              <RatingGroup.HiddenInput />
+              <RatingGroup.Control />
+            </RatingGroup.Root>
           </HStack>
         </Box>
         <HStack width={"100%"}>

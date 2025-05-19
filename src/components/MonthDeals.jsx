@@ -94,7 +94,7 @@ export default function MonthDeals() {
       </Stack>
 
       <HStack
-        width={{ lg: "80%", base: "80%" }}
+        width={{ lg: "100%", base: "80%" }}
         overflow={"hidden"}
         gap={5}
         justifyContent={"center"}

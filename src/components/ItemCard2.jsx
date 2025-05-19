@@ -19,9 +19,9 @@ export default function ItemCard2() {
           fontFamily="'Poppins', sans-serif"
           shadowColor={"#ebe8e8"}
           alignItems={"center"}
+          height={{ lg: 530 }}
+          width={{ lg: "30%", base: "100%" }}
           style={{
-            height: 530,
-            width: "30%",
             backgroundColor: "white",
             borderRadius: 10,
             marginHorizontal: 2,

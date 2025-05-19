@@ -11,10 +11,13 @@ import React from "react";
 import { IoStarSharp } from "react-icons/io5";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
+import { useNavigate } from "react-router";
 
 export default function ItemCard1() {
+  const nav = useNavigate();
   return (
     <Stack
+      cursor={"pointer"}
       direction={"row"}
       flexWrap={"wrap"}
       width={"100%"}
@@ -23,6 +26,7 @@ export default function ItemCard1() {
     >
       {Array.from({ length: 6 }).map(() => (
         <Stack
+          onClick={() => nav("/product")}
           boxShadow="0px 10px 20px rgba(0, 0, 0, 0.1)"
           fontFamily="'Poppins', sans-serif"
           shadowColor={"#ebe8e8"}

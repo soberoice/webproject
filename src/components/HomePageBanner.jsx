@@ -2,8 +2,10 @@ import React from "react";
 import HomePageSideImage from "./HomePageSideImage";
 import { Box, Button, Image, Stack } from "@chakra-ui/react";
 import BrandLogos from "./BrandLogos";
+import { useNavigate } from "react-router";
 
 export default function HomePageBanner() {
+  const nav = useNavigate();
   return (
     <Box w={"100%"}>
       <Stack
@@ -59,6 +61,9 @@ export default function HomePageBanner() {
           boxShadow={"md"}
           borderColor={"black"}
           borderWidth={"1px"}
+          onClick={() => {
+            nav("/cart");
+          }}
         >
           <Image height={21} width={22} src="./iconcart.png" />
         </Button>

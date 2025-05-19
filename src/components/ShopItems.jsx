@@ -73,7 +73,7 @@ export default function ShopItems() {
           width={"320px"}
           height={"1100"}
           gap={10}
-          display={"flex"}
+          display={{ lg: "flex", base: "none" }}
           flexDir={"column"}
         >
           <Box>
@@ -201,7 +201,7 @@ export default function ShopItems() {
             ))}
           </Accordion.Root>
         </Box>
-        <Box width={"70%"}>
+        <Box width={{ lg: "70%", base: "100%" }}>
           <Text
             fontFamily="'Volkhov', serif"
             fontSize={"18px"}

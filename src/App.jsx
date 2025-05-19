@@ -10,6 +10,8 @@ import Shop from "./Pages/Shop";
 import UpdatePassward from "./components/UpdatePassward";
 import ProductPage from "./Pages/ProductPage";
 import { BrowserRouter, Route, Routes } from "react-router";
+import Cart from "./Pages/Cart";
+import Checkout from "./Pages/Checkout";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
               <Route path="resetpassward" exact element={<UpdatePassward />} />
             </Route>
             <Route path="/product" element={<ProductPage />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
         </BrowserRouter>
       </Box>
