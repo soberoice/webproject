@@ -24,11 +24,11 @@ export default function HomePageBanner() {
         >
           <Image src="./images.png" />
           <Stack alignItems={"center"} gap={5}>
-            <Image src="./ULTIMATE.png" width={"395px"} />
+            <Image src="./ULTIMATE.png" width={{ lg: "395px", base: "100%" }} />
             <Image
               src="./sale.png"
               width={{ lg: "395px", base: "100%" }}
-              height={185}
+              height={{ lg: 185, base: 130 }}
             />
             <Image src="./NEW COLLECTION.png" width={"195px"} rounded={10} />
             <Button

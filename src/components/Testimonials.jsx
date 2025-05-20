@@ -1,7 +1,7 @@
 import { Box, Button, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import "@fontsource/poppins/400.css";
 import "@fontsource/volkhov/400.css";
-import React, { act, useState } from "react";
+import React, { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { IoStarSharp } from "react-icons/io5";
 

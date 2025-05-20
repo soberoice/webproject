@@ -80,9 +80,16 @@ export default function Footer() {
       </HStack>
       <hr />
       <Stack justifyContent={"space-between"} height={135}>
-        <HStack height={100} justifyContent={"space-between"}>
+        <HStack
+          height={{ lg: 100, base: "auto" }}
+          justifyContent={"space-between"}
+        >
           <Image src="../FASCO.png" />
-          <HStack fontFamily="'Poppins', sans-serif" gap={10}>
+          <Stack
+            direction={{ lg: "row", base: "column" }}
+            fontFamily="'Poppins', sans-serif"
+            gap={{ lg: 10, base: 0 }}
+          >
             {navItems.map((item) => (
               <Link>
                 <Text color={"#484848"} fontSize={"16px"} fontWeight="400">
@@ -90,7 +97,7 @@ export default function Footer() {
                 </Text>
               </Link>
             ))}
-          </HStack>
+          </Stack>
         </HStack>
         <Text
           fontFamily="'Poppins', sans-serif"
