@@ -24,8 +24,11 @@ import {
   IoPersonOutline,
   IoSearchOutline,
 } from "react-icons/io5";
+import SearchDialog from "./SearchDialog";
+import { useNavigate } from "react-router";
 
 export default function NavBar() {
+  const nav = useNavigate();
   const navItems = [
     { name: "Home", link: "/" },
     { name: "Shop", link: "/shop" },
@@ -36,7 +39,7 @@ export default function NavBar() {
   return (
     <Box mx={"auto"} w={"80%"} pt={5} fontFamily="'Poppins', sans-serif">
       <HStack widows={"100%"} justify={"space-between"}>
-        <Box>
+        <Box onClick={() => nav("/")} cursor={"pointer"}>
           <Image src="../FASCO.png" />
         </Box>
         <HStack display={{ lg: "flex", base: "none" }} gap={10}>
@@ -59,15 +62,32 @@ export default function NavBar() {
         >
           Sign Up
         </Button> */}
-        <HStack color={"#484848"} fontSize={22} gap={5}>
-          <IoSearchOutline cursor={"pointer"} />
+        <Box display={{ lg: "none", base: "flex" }}>
+          <SearchDialog />
+        </Box>
+        <HStack
+          color={"#484848"}
+          fontSize={22}
+          gap={6}
+          display={{ lg: "flex", base: "none" }}
+        >
+          <SearchDialog />
           <IoPersonOutline cursor={"pointer"} />
           <IoIosStarOutline cursor={"pointer"} />
 
           <Box position="relative">
-            <IoBagHandleOutline cursor={"pointer"} />
+            <IoBagHandleOutline
+              onClick={() => nav("/cart")}
+              cursor={"pointer"}
+            />
             <Float>
-              <Circle size="4" bg="red" color="white" fontSize={15}>
+              <Circle
+                fontFamily="'Volkhov', serif"
+                size="5"
+                bg="red"
+                color="white"
+                fontSize={15}
+              >
                 3
               </Circle>
             </Float>
@@ -107,7 +127,7 @@ export default function NavBar() {
                   </Stack>
                 </Drawer.Body>
                 <Drawer.Footer>
-                  <Button
+                  {/* <Button
                     color={"white"}
                     backgroundColor={"black"}
                     w={150}
@@ -116,7 +136,23 @@ export default function NavBar() {
                     boxShadow={"md"}
                   >
                     Sign Up
-                  </Button>
+                  </Button> */}
+                  <HStack color={"#484848"} fontSize={22} gap={5}>
+                    <IoPersonOutline cursor={"pointer"} />
+                    <IoIosStarOutline cursor={"pointer"} />
+
+                    <Box position="relative">
+                      <IoBagHandleOutline
+                        onClick={() => nav("/cart")}
+                        cursor={"pointer"}
+                      />
+                      <Float>
+                        <Circle size="4" bg="red" color="white" fontSize={15}>
+                          3
+                        </Circle>
+                      </Float>
+                    </Box>
+                  </HStack>
                 </Drawer.Footer>
                 <Drawer.CloseTrigger asChild>
                   <CloseButton size="lg" color={"black"} />

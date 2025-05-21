@@ -4,6 +4,7 @@ import {
   Checkbox,
   Field,
   HStack,
+  Image,
   Input,
   InputGroup,
   Stack,
@@ -19,7 +20,11 @@ export default function PaymentInfoForm() {
   const payment = usePaymentInputs();
   return (
     <form>
-      <Text color={"#484848"} fontSize={{ lg: "46px", base: "30px" }}>
+      <Text
+        color={"#484848"}
+        fontSize={{ lg: "46px", base: "30px" }}
+        fontFamily="'Volkhov', serif"
+      >
         Payment
       </Text>
       <Stack
@@ -33,9 +38,13 @@ export default function PaymentInfoForm() {
         paddingX={5}
         cursor={"pointer"}
         onClick={() => setToggleCard(!toggleCard)}
+        fontFamily="'Poppins', sans-serif"
       >
         <Text color={"#484848"}>Card</Text>
-        <IoIosArrowDown color="black" />
+        <HStack>
+          <Image src="card.png" />
+          <IoIosArrowDown color="black" />
+        </HStack>
       </Stack>
       <Box
         width={"100%"}
@@ -45,6 +54,7 @@ export default function PaymentInfoForm() {
         padding={5}
         overflow={"hidden"}
         paddingTop={toggleCard ? 5 : 0}
+        fontFamily="'Poppins', sans-serif"
       >
         <InputGroup endElement={<LuCreditCard />}>
           <Input
@@ -104,6 +114,7 @@ export default function PaymentInfoForm() {
         h={50}
         rounded={10}
         boxShadow={"md"}
+        fontFamily="'Poppins', sans-serif"
       >
         Pay Now
       </Button>

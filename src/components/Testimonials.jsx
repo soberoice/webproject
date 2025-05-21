@@ -156,7 +156,7 @@ export default function Testimonials() {
               >
                 "{testimonials[active].review}"
               </Text>
-              <HStack mx={"auto"}>
+              <HStack mx={{ base: "auto", lg: "0" }}>
                 {Array.from({ length: 5 }).map((_, index) => (
                   <IoStarSharp key={index} color="#FCA120" size={20} />
                 ))}

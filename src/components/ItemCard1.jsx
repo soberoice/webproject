@@ -13,7 +13,7 @@ import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
 import { useNavigate } from "react-router";
 
-export default function ItemCard1() {
+export default function ItemCard1({ img }) {
   const nav = useNavigate();
   return (
     <Stack
@@ -41,7 +41,7 @@ export default function ItemCard1() {
           }}
           justifyContent={"space-evenly"}
         >
-          <Image src="./Images (2).png" width={"335px"} />
+          <Image src={img} width={"335px"} />
           <HStack
             justifyContent={"space-between"}
             w={{ lg: "335px", base: "100%" }}

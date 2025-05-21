@@ -32,15 +32,22 @@ export default function DeliveryInfoForm() {
   });
   return (
     <form>
-      <Text color={"#484848"} fontSize={{ lg: "46px", base: "30px" }}>
+      <Text
+        color={"#484848"}
+        fontSize={{ lg: "46px", base: "30px" }}
+        fontFamily="'Volkhov', serif"
+      >
         Delivery
       </Text>
       <Field.Root required>
         <Combobox.Root
           collection={collection}
           onInputValueChange={(e) => filter(e.inputValue)}
+          fontFamily="'Poppins', sans-serif"
         >
-          <Combobox.Label>Select framework</Combobox.Label>
+          <Combobox.Label fontFamily="'Poppins', sans-serif">
+            Country / Region
+          </Combobox.Label>
           <Combobox.Control>
             <Combobox.Input
               color={"black"}
@@ -67,23 +74,49 @@ export default function DeliveryInfoForm() {
           </Portal>
         </Combobox.Root>
       </Field.Root>
-      <HStack my={5}>
+      <HStack color={"black"} my={5} fontFamily="'Poppins', sans-serif">
         <Field.Root required>
-          <Input height={"70px"} placeholder="First Name" paddingX={5} />
+          <Input
+            color={"black"}
+            height={"70px"}
+            placeholder="First Name"
+            paddingX={5}
+          />
         </Field.Root>
         <Field.Root required>
-          <Input height={"70px"} placeholder="Last Name" paddingX={5} />
+          <Input
+            color={"black"}
+            height={"70px"}
+            placeholder="Last Name"
+            paddingX={5}
+          />
         </Field.Root>
       </HStack>
       <Field.Root required>
-        <Input height={"70px"} placeholder="Address" paddingX={5} />
+        <Input
+          color={"black"}
+          height={"70px"}
+          fontFamily="'Poppins', sans-serif"
+          placeholder="Address"
+          paddingX={5}
+        />
       </Field.Root>
-      <HStack my={5}>
+      <HStack color={"black"} my={5} fontFamily="'Poppins', sans-serif">
         <Field.Root required>
-          <Input height={"70px"} placeholder="City" paddingX={5} />
+          <Input
+            color={"black"}
+            height={"70px"}
+            placeholder="City"
+            paddingX={5}
+          />
         </Field.Root>
         <Field.Root required>
-          <Input height={"70px"} placeholder="Postal Code" paddingX={5} />
+          <Input
+            color={"black"}
+            height={"70px"}
+            placeholder="Postal Code"
+            paddingX={5}
+          />
         </Field.Root>
       </HStack>
     </form>

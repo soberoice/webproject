@@ -1,5 +1,96 @@
+import {
+  Box,
+  Button,
+  Circle,
+  Float,
+  HStack,
+  Image,
+  Input,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import React from "react";
 
 export default function CheckoutItem() {
-  return <div></div>;
+  return (
+    <Box width={{ lg: "70%", md: "80%", base: "100%" }}>
+      <HStack w={"100%"}>
+        <Box position="relative" w="137px" h="137px" bg="bg.emphasized">
+          <Image src="product.png" height={"137px"} width={"137px"} />
+          <Float>
+            <Circle
+              fontFamily="'Volkhov', serif"
+              size="5"
+              bg="#FF0606"
+              color="white"
+            >
+              1
+            </Circle>
+          </Float>
+        </Box>
+        <Stack width={"100%"}>
+          <Text color={"black"} fontSize={"18px"} fontFamily="'Volkhov', serif">
+            Mini dress with ruffled straps
+          </Text>
+          <HStack
+            width={"100%"}
+            justify={"space-between"}
+            fontFamily="'Poppins', sans-serif"
+          >
+            <Text color={"#484848"}>Red</Text>
+            <Text color={"#484848"}>$100.00</Text>
+          </HStack>
+        </Stack>
+      </HStack>
+      <HStack w={"100%"} marginTop={5}>
+        <Input
+          placeholder="Discount code"
+          backgroundColor={"white"}
+          border={"none"}
+          fontFamily="'Poppins', sans-serif"
+          height={"70px"}
+          color={"black"}
+          fontSize={"18px"}
+        />
+        <Button
+          color={"white"}
+          backgroundColor={"black"}
+          w={"160px"}
+          h={"60px"}
+          rounded={10}
+          boxShadow={"md"}
+          display={{ lg: "flex", base: "none" }}
+          fontFamily="'Poppins', sans-serif"
+        >
+          Apply
+        </Button>
+      </HStack>
+      <Box w={"100%"} fontFamily="'Poppins', sans-serif">
+        <HStack w={"100%"} marginTop={5} justify={"space-between"}>
+          <Text color={"#484848"} fontSize={"18px"}>
+            Subtotal:{" "}
+          </Text>
+          <Text color={"#484848"} fontSize={"18px"}>
+            $100.00
+          </Text>
+        </HStack>
+        <HStack w={"100%"} marginTop={5} justify={"space-between"}>
+          <Text color={"#484848"} fontSize={"18px"}>
+            Shipping:{" "}
+          </Text>
+          <Text color={"#484848"} fontSize={"18px"}>
+            $10.00
+          </Text>
+        </HStack>
+        <HStack w={"100%"} marginTop={5} justify={"space-between"}>
+          <Text color={"#484848"} fontSize={"18px"}>
+            total:{" "}
+          </Text>
+          <Text color={"#484848"} fontSize={"18px"}>
+            $110.00
+          </Text>
+        </HStack>
+      </Box>
+    </Box>
+  );
 }

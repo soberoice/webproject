@@ -1,5 +1,5 @@
 import { Box, Button, HStack, Stack, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ItemCard1 from "./ItemCard1";
 import "@fontsource/volkhov/400.css";
 import "@fontsource/poppins/400.css";
@@ -7,11 +7,23 @@ export default function NewArrivals() {
   const buttons = [
     "Men’s Fashion",
     "Women’s Fashion",
-    "Women Accessories",
+    "Women's Accessories",
     "Men Accessories",
     "Discount Deals",
   ];
   const [active, setActive] = useState("Men’s Fashion");
+  const [img, setImg] = useState("Images (2).png");
+  useEffect(() => {
+    if (active === "Men’s Fashion") {
+      setImg("2image.png");
+    } else if (active === "Women's Accessories") {
+      setImg("2image.png");
+    } else if (active === "Discount Deals") {
+      setImg("2image.png");
+    } else {
+      setImg("../Images (2).png");
+    }
+  }, [active]);
   return (
     <Stack width={"80%"} alignItems={"center"} marginY={100}>
       <Stack
@@ -58,7 +70,7 @@ export default function NewArrivals() {
           </Button>
         ))}
       </HStack>
-      <ItemCard1 />
+      <ItemCard1 img={img} />
       <Button
         color={"white"}
         backgroundColor={"black"}

@@ -24,6 +24,7 @@ export default function CheckoutPage() {
       </Stack>
       <Box
         height={"900px"}
+        padding={10}
         width={{ lg: "50%", base: "100%" }}
         backgroundColor={"#F5F5F5"}
       >
