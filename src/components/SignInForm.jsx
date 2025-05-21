@@ -127,7 +127,7 @@ export default function SignInForm() {
             Register Now
           </Button>
           <Box width={"80%"}>
-            <Link href={"/signin/forgotpassward"}>
+            <Link href={"/signin/forgotpassword"}>
               <Text
                 fontFamily="'Poppins', sans-serif"
                 color={"#5B86E5"}

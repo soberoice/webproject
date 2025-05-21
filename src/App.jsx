@@ -9,9 +9,11 @@ import EnterCode from "./components/EnterCode";
 import Shop from "./Pages/Shop";
 import UpdatePassward from "./components/UpdatePassward";
 import ProductPage from "./Pages/ProductPage";
-import { BrowserRouter, Route, Routes } from "react-router";
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
+import { BrowserRouter } from "react-router";
+import { Routes } from "react-router";
+import { Route } from "react-router";
 
 function App() {
   return (
@@ -19,14 +21,14 @@ function App() {
       <Box bg="white" minH="100vh">
         <BrowserRouter>
           <Routes>
-            <Route path="/" exact element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/signin" element={<SignIn />}>
-              <Route path="" exact element={<SignInForm />} />
-              <Route path="forgotpassward" exact element={<ForgotPassward />} />
-              <Route path="entercode" exact element={<EnterCode />} />
-              <Route path="resetpassward" exact element={<UpdatePassward />} />
+              <Route path="" element={<SignInForm />} />
+              <Route path="forgotpassword" element={<ForgotPassward />} />
+              <Route path="entercode" element={<EnterCode />} />
+              <Route path="resetpassword" element={<UpdatePassward />} />
             </Route>
             <Route path="/product" element={<ProductPage />} />
             <Route path="/cart" element={<Cart />} />
