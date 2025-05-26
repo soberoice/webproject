@@ -44,7 +44,7 @@ export default function NavBar() {
         </Box>
         <HStack display={{ lg: "flex", base: "none" }} gap={10}>
           {navItems.map((item) => (
-            <Link href={item.link} focusRing={"none"}>
+            <Link href={item.link} focusRing={"none"} key={item.name}>
               <Text color={"#484848"} fontSize={"16px"} fontWeight="400">
                 {item.name}
               </Text>
@@ -113,8 +113,8 @@ export default function NavBar() {
                 <Drawer.Header></Drawer.Header>
                 <Drawer.Body>
                   <Stack gap={10}>
-                    {navItems.map((item) => (
-                      <Link href={item.link} focusRing={"none"}>
+                    {navItems.map((item, index) => (
+                      <Link key={index} href={item.link} focusRing={"none"}>
                         <Text
                           color={"#484848"}
                           fontSize={"16px"}

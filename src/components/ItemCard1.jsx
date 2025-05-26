@@ -24,9 +24,10 @@ export default function ItemCard1({ img }) {
       justifyContent={"space-evenly"}
       gap={10}
     >
-      {Array.from({ length: 6 }).map(() => (
+      {Array.from({ length: 6 }).map((_, index) => (
         <Stack
           onClick={() => nav("/product")}
+          key={index}
           boxShadow="0px 10px 20px rgba(0, 0, 0, 0.1)"
           fontFamily="'Poppins', sans-serif"
           shadowColor={"#ebe8e8"}

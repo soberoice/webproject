@@ -90,8 +90,11 @@ export default function Footer() {
             fontFamily="'Poppins', sans-serif"
             gap={{ lg: 10, base: 0 }}
           >
-            {navItems.map((item) => (
-              <Link>
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                to={`/${item.toLowerCase().replace(/ /g, "-")}`}
+              >
                 <Text color={"#484848"} fontSize={"16px"} fontWeight="400">
                   {item}
                 </Text>

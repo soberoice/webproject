@@ -30,8 +30,8 @@ export default function FollowInstagram() {
         </Text>
       </VStack>
       <HStack gap={0}>
-        {images.map((img) => (
-          <Image maxW={"14.3%"} minHeight={"280px"} src={img} />
+        {images.map((img, index) => (
+          <Image key={index} maxW={"14.3%"} minHeight={"280px"} src={img} />
         ))}
       </HStack>
     </Stack>

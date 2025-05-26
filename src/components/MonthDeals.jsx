@@ -9,7 +9,7 @@ import "@fontsource/volkhov/400.css";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function MonthDeals() {
-  const MotionImage = motion(Image);
+  const MotionImage = motion.create(Image);
   const images = ["./image (2).png", "./image (1).png", "./image (2).png"];
   const [active, setActive] = useState(0);
 

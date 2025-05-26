@@ -12,8 +12,9 @@ export default function ItemCard2() {
       justifyContent={"space-evenly"}
       gap={10}
     >
-      {Array.from({ length: 6 }).map(() => (
+      {Array.from({ length: 6 }).map((_, index) => (
         <Stack
+          key={index}
           cursor={"pointer"}
           onClick={() => nav("/product")}
           fontFamily="'Poppins', sans-serif"

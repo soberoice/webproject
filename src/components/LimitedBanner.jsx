@@ -124,10 +124,15 @@ export default function LimitedBanner() {
         height={{ lg: "150px", base: "300px" }}
         boxShadow="0px 5px 20px rgba(0, 0, 0, 0.1)"
       >
-        <HStack justifyContent={"space-evenly"} flexWrap={"wrap"}>
+        <HStack
+          justifyContent={{ lg: "space-evenly", base: "flex-start" }}
+          flexWrap={"wrap"}
+          width={"80%"}
+          mx={"auto"}
+        >
           {items.map((item) => (
-            <HStack>
-              <Image src={item.image} />
+            <HStack key={item.name} gap={5}>
+              <Image w={"46px"} src={item.image} />
               <Box>
                 <Text
                   color={"#484848"}

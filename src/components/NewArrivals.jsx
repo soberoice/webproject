@@ -54,10 +54,14 @@ export default function NewArrivals() {
         w={"100%"}
         marginBottom={50}
         fontFamily="'Poppins', sans-serif"
-        flexWrap={"wrap"}
+        overflowX={"scroll"}
+        height={70}
+        px={10}
+        scrollbar={"hidden"}
       >
         {buttons.map((btn) => (
           <Button
+            key={btn}
             h={55}
             w={200}
             rounded={10}

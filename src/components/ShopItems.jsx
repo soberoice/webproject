@@ -102,6 +102,7 @@ export default function ShopItems() {
                   borderWidth={"1px"}
                   borderColor={"#8A8A8A"}
                   width={"40px"}
+                  key={size}
                   height={"40px"}
                 >
                   {size}
@@ -125,6 +126,7 @@ export default function ShopItems() {
                   borderColor={"black"}
                   borderRadius={"20px"}
                   padding={1}
+                  key={col}
                 >
                   <Box
                     width={"30px"}
@@ -147,13 +149,14 @@ export default function ShopItems() {
               Price
             </Text>
             <VStack flexWrap={"wrap"} gap={2} w={"100%"}>
-              {prices.map((price) => (
+              {prices.map((price, index) => (
                 <Text
                   textAlign={"left"}
                   color={"#8A8A8A"}
                   fontSize={"16px"}
                   fontFamily="'Poppins', sans-serif"
                   w={"100%"}
+                  key={index}
                 >
                   {price}
                 </Text>
@@ -166,7 +169,7 @@ export default function ShopItems() {
             multiple
           >
             {items.map((item) => (
-              <Accordion.Item value={item.value}>
+              <Accordion.Item value={item.value} key={item.value}>
                 <Accordion.ItemTrigger>
                   <Span
                     fontFamily="'Volkhov', serif"
@@ -184,12 +187,13 @@ export default function ShopItems() {
                       flexDir={item.name === "Collections" ? "column" : "row"}
                       flexWrap={"wrap"}
                     >
-                      {item.items.map((i) => (
+                      {item.items.map((i, index) => (
                         <Text
                           onClick={() => handleClick(item.name, i)}
                           cursor={"pointer"}
                           color={"#8A8A8A"}
                           fontFamily="'Poppins', sans-serif"
+                          key={index}
                         >
                           {i}
                         </Text>

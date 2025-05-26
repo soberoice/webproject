@@ -19,7 +19,7 @@ export default function BrandLogos() {
       marginY={100}
     >
       {logos.map((logo) => (
-        <Image src={logo} />
+        <Image key={logo} src={logo} />
       ))}
     </HStack>
   );

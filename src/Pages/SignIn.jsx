@@ -9,11 +9,9 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
 import { Outlet } from "react-router";
 import "@fontsource/poppins/400.css";
 import "@fontsource/volkhov/400.css";
-import SignInForm from "../components/SignInForm";
 
 export default function SignIn() {
   return (
