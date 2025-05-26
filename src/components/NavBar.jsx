@@ -40,7 +40,7 @@ export default function NavBar() {
         </Box>
         <HStack display={{ lg: "flex", base: "none" }} gap={10}>
           {navItems.map((item) => (
-            <Link to={`/${item.link}`} focusRing={"none"} key={item.name}>
+            <Link to={`${item.link}`} focusRing={"none"} key={item.name}>
               <Text color={"#484848"} fontSize={"16px"} fontWeight="400">
                 {item.name}
               </Text>
