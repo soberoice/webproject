@@ -1,15 +1,6 @@
-import {
-  Box,
-  Button,
-  HStack,
-  Image,
-  Input,
-  Link,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Button, Image, Input, Text, VStack } from "@chakra-ui/react";
 import React from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function UpdatePassward() {
   const nav = useNavigate();

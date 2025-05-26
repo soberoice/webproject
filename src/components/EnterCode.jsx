@@ -4,12 +4,11 @@ import {
   HStack,
   Image,
   Input,
-  Link,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function EnterCode() {
   const nav = useNavigate();
@@ -40,7 +39,7 @@ export default function EnterCode() {
         </Text>
         <form
           className="flex items-center w-full flex-col gap-10"
-          onSubmit={() => nav("/signin/resetpassw0rd")}
+          onSubmit={() => nav("/signin/resetpassword")}
         >
           <HStack width={"100%"} height={"50px"}>
             <Input
@@ -73,7 +72,7 @@ export default function EnterCode() {
               <Text color={"#000"} fontFamily="'Poppins', sans-serif">
                 Didn’t receive Confirmation Code?
               </Text>
-              <Link color={"#5B86E5"} href="/signin">
+              <Link color={"#5B86E5"} to="/signin">
                 Resend Now
               </Link>
             </HStack>
