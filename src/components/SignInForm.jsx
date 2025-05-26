@@ -76,7 +76,7 @@ export default function SignInForm() {
       <Box w={"80%"} mx={"auto"}></Box>
       <form
         className="flex items-center w-full flex-col gap-10"
-        onSubmit={handleSubmit}
+        onSubmit={() => handleSubmit}
       >
         <Input
           width={"80%"}

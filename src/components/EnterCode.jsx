@@ -43,7 +43,7 @@ export default function EnterCode() {
         </Text>
         <form
           className="flex items-center w-full flex-col gap-10"
-          onSubmit={handleSubmit}
+          onSubmit={() => handleSubmit}
         >
           <HStack width={"100%"} height={"50px"}>
             <Input
