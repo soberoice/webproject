@@ -12,10 +12,6 @@ import { Link, useNavigate } from "react-router";
 
 export default function EnterCode() {
   const nav = useNavigate();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    nav("/signin/entercode");
-  };
   return (
     <VStack
       width={"100%"}
@@ -41,10 +37,7 @@ export default function EnterCode() {
         >
           Forget Passward
         </Text>
-        <form
-          className="flex items-center w-full flex-col gap-10"
-          onSubmit={() => handleSubmit}
-        >
+        <form className="flex items-center w-full flex-col gap-10">
           <HStack width={"100%"} height={"50px"}>
             <Input
               width={"100%"}
@@ -69,6 +62,7 @@ export default function EnterCode() {
               boxShadow={"md"}
               fontFamily="'Poppins', sans-serif"
               type="submite"
+              onClick={() => nav("/signin/resetpassword")}
             >
               Recover Account
             </Button>

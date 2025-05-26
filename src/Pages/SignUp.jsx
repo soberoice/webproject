@@ -83,10 +83,7 @@ export default function SignUp() {
             OR
           </Text>
           <Box w={"80%"} mx={"auto"}>
-            <form
-              className="flex items-center w-full flex-col gap-10"
-              onSubmit={() => nav("/")}
-            >
+            <form className="flex items-center w-full flex-col gap-10">
               <HStack width={"100%"} height={"50px"}>
                 <Input
                   width={"49%"}
@@ -174,6 +171,7 @@ export default function SignUp() {
                 boxShadow={"md"}
                 fontFamily="'Poppins', sans-serif"
                 type="submite"
+                onClick={() => nav("/")}
               >
                 Create Account
               </Button>
