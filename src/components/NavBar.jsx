@@ -1,8 +1,5 @@
 import {
-  Avatar,
-  Badge,
   Box,
-  Button,
   Circle,
   CloseButton,
   Drawer,
@@ -10,7 +7,6 @@ import {
   HStack,
   IconButton,
   Image,
-  Link,
   Portal,
   Stack,
   Text,
@@ -25,7 +21,7 @@ import {
   IoSearchOutline,
 } from "react-icons/io5";
 import SearchDialog from "./SearchDialog";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function NavBar() {
   const nav = useNavigate();
@@ -44,7 +40,7 @@ export default function NavBar() {
         </Box>
         <HStack display={{ lg: "flex", base: "none" }} gap={10}>
           {navItems.map((item) => (
-            <Link href={item.link} focusRing={"none"} key={item.name}>
+            <Link to={`/${item.link}`} focusRing={"none"} key={item.name}>
               <Text color={"#484848"} fontSize={"16px"} fontWeight="400">
                 {item.name}
               </Text>
