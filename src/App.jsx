@@ -11,9 +11,7 @@ import UpdatePassward from "./components/UpdatePassward";
 import ProductPage from "./Pages/ProductPage";
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
-import { BrowserRouter } from "react-router";
-import { Routes } from "react-router";
-import { Route } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
 
 function App() {
   return (

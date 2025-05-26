@@ -13,7 +13,7 @@ import FollowInstagram from "../components/FollowInstagram";
 
 export default function HomePage() {
   return (
-    <Stack alignItems={"center"} w={"100%"} overflowX={"hidden"}>
+    <Stack alignItems={"center"} w={"100%"} overflow={"hidden"}>
       <NavBar />
       <Stack marginTop={10} alignItems={"center"} w={"100%"} gap={"auto"}>
         <HomePageBanner />

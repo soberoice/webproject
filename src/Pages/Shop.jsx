@@ -8,7 +8,7 @@ import LimitedBanner from "../components/LimitedBanner";
 
 export default function Shop() {
   return (
-    <Stack alignItems={"center"} overflowX={"hidden"}>
+    <Stack alignItems={"center"} overflow={"hidden"}>
       <NavBar />
       <Stack marginTop={10} w={"100%"} alignItems={"center"} gap={"auto"}>
         <ShopItems />

@@ -21,7 +21,7 @@ export default function ItemCard2() {
           shadowColor={"#ebe8e8"}
           alignItems={"center"}
           height={{ lg: 530 }}
-          width={{ lg: "30%", base: "100%" }}
+          width={{ lg: "30%", md: "45%", base: "100%" }}
           style={{
             backgroundColor: "white",
             borderRadius: 10,

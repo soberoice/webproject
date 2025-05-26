@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import ItemCard2 from "./ItemCard2";
-
+import FilterDialogBox from "./FilterDialogBox";
 export default function ShopItems() {
   const colors = [
     "#FF6C6C",
@@ -206,14 +206,17 @@ export default function ShopItems() {
           </Accordion.Root>
         </Box>
         <Box width={{ lg: "70%", base: "100%" }}>
-          <Text
-            fontFamily="'Volkhov', serif"
-            fontSize={"18px"}
-            color={"#000"}
-            width={"100%"}
-          >
-            {collection}
-          </Text>
+          <HStack>
+            <FilterDialogBox />
+            <Text
+              fontFamily="'Volkhov', serif"
+              fontSize={"18px"}
+              color={"#000"}
+              width={"100%"}
+            >
+              {collection}
+            </Text>
+          </HStack>
           <ItemCard2 />
         </Box>
       </Stack>

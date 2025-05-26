@@ -1,7 +1,7 @@
 import { Box, Button, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import "@fontsource/poppins/400.css";
 import "@fontsource/volkhov/400.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { IoStarSharp } from "react-icons/io5";
 
@@ -128,7 +128,7 @@ export default function Testimonials() {
             width={{ lg: "650px", base: "100%" }}
             height={{ lg: "350px", base: "400px" }}
             alignItems={"center"}
-            direction={{ lg: "row", base: "column" }}
+            direction={{ sm: "row", base: "column" }}
             boxShadow="0px 10px 20px rgba(0, 0, 0, 0.1)"
             justifyContent={"center"}
             gap={5}
@@ -137,14 +137,14 @@ export default function Testimonials() {
           >
             <Image
               src={testimonials[active].image}
-              width={{ lg: "240px", base: "100px" }}
-              height={{ lg: "240px", base: "100px" }}
+              width={{ sm: "240px", base: "100px" }}
+              height={{ sm: "240px", base: "100px" }}
             />
             <Box
-              width={{ lg: "50%", base: "90%" }}
+              width={{ sm: "50%", base: "90%" }}
               textAlign={"left"}
               display={"flex"}
-              gap={{ lg: 5, base: 2 }}
+              gap={{ sm: 5, base: 2 }}
               flexDir={"column"}
               height={"240px"}
             >
@@ -152,23 +152,23 @@ export default function Testimonials() {
                 color={"#484848"}
                 fontSize={"16px"}
                 fontFamily="'Poppins', sans-serif"
-                textAlign={{ lg: "left", base: "center" }}
+                textAlign={{ sm: "left", base: "center" }}
               >
                 "{testimonials[active].review}"
               </Text>
-              <HStack mx={{ base: "auto", lg: "0" }}>
+              <HStack mx={{ base: "auto", sm: "0" }}>
                 {Array.from({ length: 5 }).map((_, index) => (
                   <IoStarSharp key={index} color="#FCA120" size={20} />
                 ))}
               </HStack>
-              <Box width={{ lg: "50%", base: "100%" }}>
+              <Box width={{ sm: "50%", base: "100%" }}>
                 <hr />
               </Box>
               <Text
                 color={"#484848"}
                 fontSize={"32px"}
                 fontFamily="'Volkhov', serif"
-                textAlign={{ lg: "left", base: "center" }}
+                textAlign={{ sm: "left", base: "center" }}
               >
                 {testimonials[active].name}
               </Text>
@@ -176,7 +176,7 @@ export default function Testimonials() {
                 color={"#484848"}
                 fontSize={"16px"}
                 fontFamily="'Poppins', sans-serif"
-                textAlign={{ lg: "left", base: "center" }}
+                textAlign={{ sm: "left", base: "center" }}
               >
                 {testimonials[active].title}
               </Text>

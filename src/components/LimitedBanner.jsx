@@ -31,13 +31,16 @@ export default function LimitedBanner() {
         direction={{ lg: "row", base: "column" }}
         width={"100%"}
         padding={0}
-        height={{ lg: "479px", base: "320px" }}
+        height={{ sm: "500px", lg: "479px", base: "320px" }}
         backgroundColor={"#DADADA"}
         alignItems={{ lg: "center" }}
         overflow={"hidden"}
         position={"relative"}
       >
-        <Image height={{ lg: "479px", base: "320px" }} src="./image (4).png" />
+        <Image
+          height={{ md: "479px", sm: "500px", base: "320px" }}
+          src="./image (4).png"
+        />
         <Box
           height={{ lg: "100%", base: "2px" }}
           backgroundColor={"black"}

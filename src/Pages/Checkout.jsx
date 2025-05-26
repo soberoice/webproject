@@ -6,7 +6,7 @@ import CheckoutPage from "../components/CheckoutPage";
 
 export default function Checkout() {
   return (
-    <Stack alignItems={"center"} w={"100%"} overflowX={"hidden"}>
+    <Stack alignItems={"center"} w={"100%"} overflow={"hidden"}>
       <NavBar />
       <Stack marginTop={10} alignItems={"center"} w={"100%"} gap={"auto"}>
         <CheckoutPage />

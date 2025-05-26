@@ -10,7 +10,7 @@ import ProductInfo from "../components/ProductInfo";
 
 export default function ProductPage() {
   return (
-    <Stack alignItems={"center"} overflowX={"hidden"}>
+    <Stack alignItems={"center"} overflow={"hidden"}>
       <NavBar />
       <Stack marginTop={10} alignItems={"center"} gap={"auto"}>
         <ProductInfo />

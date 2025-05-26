@@ -32,7 +32,7 @@ export default function ItemCard1({ img }) {
           fontFamily="'Poppins', sans-serif"
           shadowColor={"#ebe8e8"}
           alignItems={"center"}
-          width={{ lg: 380, base: "100%" }}
+          width={{ lg: 380, base: "100%", md: "45%", sm: "380px" }}
           style={{
             height: 440,
             backgroundColor: "white",
