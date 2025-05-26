@@ -4,12 +4,11 @@ import {
   HStack,
   Image,
   Input,
-  Link,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function SignInForm() {
   const nav = useNavigate();
@@ -127,7 +126,7 @@ export default function SignInForm() {
             Register Now
           </Button>
           <Box width={"80%"}>
-            <Link href={"/signin/forgotpassword"}>
+            <Link to={"/signin/forgotpassword"}>
               <Text
                 fontFamily="'Poppins', sans-serif"
                 color={"#5B86E5"}
