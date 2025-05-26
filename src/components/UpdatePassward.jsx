@@ -4,6 +4,10 @@ import { Link, useNavigate } from "react-router";
 
 export default function UpdatePassward() {
   const nav = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    nav("/signin/entercode");
+  };
   return (
     <VStack
       width={"100%"}
@@ -17,7 +21,7 @@ export default function UpdatePassward() {
       <Box w={"80%"} mx={"auto"}></Box>
       <form
         className="flex items-center w-full flex-col gap-10"
-        onSubmit={() => nav("/")}
+        onSubmit={handleSubmit}
       >
         <Text
           fontFamily="'Volkhov', serif"

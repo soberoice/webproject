@@ -12,6 +12,10 @@ import { Link, useNavigate } from "react-router";
 
 export default function SignInForm() {
   const nav = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    nav("/signin/entercode");
+  };
   return (
     <VStack width={"100%"} height={"90%"} justifyContent={"space-between"}>
       <Box width={"70%"}>
@@ -72,7 +76,7 @@ export default function SignInForm() {
       <Box w={"80%"} mx={"auto"}></Box>
       <form
         className="flex items-center w-full flex-col gap-10"
-        onSubmit={() => nav("/")}
+        onSubmit={handleSubmit}
       >
         <Input
           width={"80%"}
