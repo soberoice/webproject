@@ -1,9 +1,11 @@
 import { Box, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import PaginationList from "./Pagination";
 import { useNavigate } from "react-router";
+import { useProd } from "../Providers/ProductContext";
 
 export default function ItemCard2() {
   const nav = useNavigate();
+  const { products } = useProd();
   return (
     <Stack
       direction={"row"}
@@ -12,11 +14,11 @@ export default function ItemCard2() {
       justifyContent={"space-evenly"}
       gap={10}
     >
-      {Array.from({ length: 6 }).map((_, index) => (
+      {products.map((item, index) => (
         <Stack
           key={index}
           cursor={"pointer"}
-          onClick={() => nav("/product")}
+          onClick={() => nav(`/product/${item.id}`)}
           fontFamily="'Poppins', sans-serif"
           shadowColor={"#ebe8e8"}
           alignItems={"center"}
@@ -31,7 +33,12 @@ export default function ItemCard2() {
           justifyContent={"space-evenly"}
           marginBottom={50}
         >
-          <Image src="./item2.png" minWidth={"300px"} />
+          <Image
+            src={`/${item.image}`}
+            minWidth={"300px"}
+            minH={"400px"}
+            maxH={"400px"}
+          />
           <VStack
             justifyContent={"space-between"}
             w={"300px"}
@@ -39,10 +46,10 @@ export default function ItemCard2() {
           >
             <Stack gap={2}>
               <Text color={"#000000"} fontSize={"20px"} fontWeight={"500"}>
-                Long Dress
+                {item.name}
               </Text>
               <Text color={"#000000"} fontSize={"16px"}>
-                $8.00
+                ${item.price}
               </Text>
             </Stack>
             <HStack>

@@ -13,9 +13,14 @@ import { Link, useNavigate } from "react-router";
 export default function SignInForm() {
   const nav = useNavigate();
   return (
-    <VStack width={"100%"} height={"90%"} justifyContent={"space-between"}>
+    <VStack
+      width={"100%"}
+      height={"90%"}
+      justifyContent={"space-between"}
+      backgroundColor={"white"}
+    >
       <Box width={"70%"}>
-        <Image src="FASCO.png" />
+        <Image src="/FASCO.png" />
       </Box>
       <Box
         display={"flex"}
@@ -35,7 +40,7 @@ export default function SignInForm() {
         <HStack
           width={"90%"}
           justifyContent={"space-between"}
-          overflow={"hidden"}
+          flexWrap={"wrap"}
         >
           <Button
             fontFamily="'Poppins', sans-serif"
@@ -45,7 +50,7 @@ export default function SignInForm() {
             borderColor={"#5B86E5"}
             rounded={10}
           >
-            <Image src="./google.png" height={"30px"} w={"30px"} /> Sign up with
+            <Image src="/google.png" height={"30px"} w={"30px"} /> Sign up with
             Google
           </Button>
           <Button
@@ -56,7 +61,7 @@ export default function SignInForm() {
             borderColor={"#5B86E5"}
             rounded={10}
           >
-            <Image src="./email.png" height={"30px"} w={"30px"} /> Sign up with
+            <Image src="/email.png" height={"30px"} w={"30px"} /> Sign up with
             Email
           </Button>
         </HStack>

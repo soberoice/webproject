@@ -26,7 +26,7 @@ export default function ItemCard1({ img }) {
     >
       {Array.from({ length: 6 }).map((_, index) => (
         <Stack
-          onClick={() => nav("/product")}
+          onClick={() => nav(`/product/${index + 1}`)}
           key={index}
           boxShadow="0px 10px 20px rgba(0, 0, 0, 0.1)"
           fontFamily="'Poppins', sans-serif"

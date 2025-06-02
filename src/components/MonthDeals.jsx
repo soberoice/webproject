@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function MonthDeals() {
   const MotionImage = motion.create(Image);
-  const images = ["./image (2).png", "./image (1).png", "./image (2).png"];
+  const images = ["/image (2).png", "/image (1).png", "/image (2).png"];
   const [active, setActive] = useState(0);
 
   function handleForward() {
@@ -40,6 +40,7 @@ export default function MonthDeals() {
     >
       <Stack
         width={{ lg: "35%", base: "80%" }}
+        height={{ lg: "580px", base: "400px" }}
         justifyContent={"space-between"}
       >
         <Stack height={"250px"} justifyContent={"space-between"}>
@@ -67,7 +68,7 @@ export default function MonthDeals() {
             Buy Now
           </Button>
         </Stack>
-        <HStack ml={"auto"}>
+        <HStack ml={{ lg: "auto", base: "0" }}>
           <Button
             width={"45px"}
             height={"45px"}

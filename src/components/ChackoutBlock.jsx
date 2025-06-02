@@ -2,7 +2,7 @@ import { Box, Button, Checkbox, HStack, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { useNavigate } from "react-router";
 
-export default function ChackoutBlock() {
+export default function ChackoutBlock({ subTotal }) {
   const nav = useNavigate();
   return (
     <Box width={"80%"} marginTop={10}>
@@ -20,7 +20,7 @@ export default function ChackoutBlock() {
         >
           <Checkbox.HiddenInput />
           <Checkbox.Control />
-          <Checkbox.Label fontSize={"18px"}>
+          <Checkbox.Label fontSize={"15px"}>
             For <b>$10.00</b> please wrap the product
           </Checkbox.Label>
         </Checkbox.Root>
@@ -41,7 +41,7 @@ export default function ChackoutBlock() {
             fontFamily="'Volkhov', serif"
             fontWeight={400}
           >
-            $100.00
+            ${subTotal}
           </Text>
         </HStack>
         <Button

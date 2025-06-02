@@ -12,7 +12,7 @@ export default function UpdatePassward() {
       justifyContent={"space-between"}
     >
       <Box width={"70%"}>
-        <Image src="../FASCO.png" />
+        <Image src="/FASCO.png" />
       </Box>
       <Box w={"80%"} mx={"auto"}></Box>
       <form className="flex items-center w-full flex-col gap-10">

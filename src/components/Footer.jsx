@@ -27,7 +27,7 @@ export default function Footer() {
         <Image
           display={{ base: "none", lg: "block" }}
           height={"745px"}
-          src="./image 2.png"
+          src="/image 2.png"
         />
         <Stack
           width={{ lg: "60%", base: "100%" }}
@@ -75,11 +75,11 @@ export default function Footer() {
         <Image
           display={{ base: "none", lg: "block" }}
           height={"745px"}
-          src="./image 3.png"
+          src="/image 3.png"
         />
       </HStack>
       <hr />
-      <Stack justifyContent={"space-between"} height={135}>
+      <Stack justifyContent={"space-between"}>
         <HStack
           height={{ lg: 100, base: "auto" }}
           justifyContent={"space-between"}

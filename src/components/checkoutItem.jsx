@@ -10,38 +10,50 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
+import { useProd } from "../Providers/ProductContext";
 
 export default function CheckoutItem() {
+  const { cart } = useProd();
   return (
     <Box width={{ lg: "70%", md: "80%", base: "100%" }}>
-      <HStack w={"100%"}>
-        <Box position="relative" w="137px" h="137px" bg="bg.emphasized">
-          <Image src="product.png" height={"137px"} width={"137px"} />
-          <Float>
-            <Circle
+      {cart?.map((item) => (
+        <HStack marginTop={5} w={"100%"}>
+          <Box position="relative" w="137px" h="137px" bg="bg.emphasized">
+            <Image
+              src={`/${item.prod.image}`}
+              height={"137px"}
+              width={"137px"}
+            />
+            <Float>
+              <Circle
+                fontFamily="'Volkhov', serif"
+                size="5"
+                bg="#FF0606"
+                color="white"
+              >
+                {item.quantity}
+              </Circle>
+            </Float>
+          </Box>
+          <Stack width={"100%"}>
+            <Text
+              color={"black"}
+              fontSize={"18px"}
               fontFamily="'Volkhov', serif"
-              size="5"
-              bg="#FF0606"
-              color="white"
             >
-              1
-            </Circle>
-          </Float>
-        </Box>
-        <Stack width={"100%"}>
-          <Text color={"black"} fontSize={"18px"} fontFamily="'Volkhov', serif">
-            Mini dress with ruffled straps
-          </Text>
-          <HStack
-            width={"100%"}
-            justify={"space-between"}
-            fontFamily="'Poppins', sans-serif"
-          >
-            <Text color={"#484848"}>Red</Text>
-            <Text color={"#484848"}>$100.00</Text>
-          </HStack>
-        </Stack>
-      </HStack>
+              {item.prod.name}
+            </Text>
+            <HStack
+              width={"100%"}
+              justify={"space-between"}
+              fontFamily="'Poppins', sans-serif"
+            >
+              <Text color={"#484848"}>{item.prod.color}</Text>
+              <Text color={"#484848"}>${item.prod.price}</Text>
+            </HStack>
+          </Stack>
+        </HStack>
+      ))}
       <HStack w={"100%"} marginTop={5}>
         <Input
           placeholder="Discount code"

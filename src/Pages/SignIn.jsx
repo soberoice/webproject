@@ -15,7 +15,7 @@ import "@fontsource/volkhov/400.css";
 
 export default function SignIn() {
   return (
-    <Box width={"100%"} height={"100vh"}>
+    <Box width={"100%"} paddingY={50} minH={"100vh"} backgroundColor={"white"}>
       <Stack
         mx={"auto"}
         width={"90%"}
@@ -24,14 +24,15 @@ export default function SignIn() {
         h={"full"}
         gap={0}
       >
-        <Image width={"45%"} src="../signin.png" />
+        <Image width={{ lg: "45%", base: 0 }} src="/signin.png" />
         <VStack
-          width={"50%"}
+          width={{ lg: "50%", base: "100%" }}
           height={"90%"}
           justifyContent={"center"}
           alignItems={"center"}
           borderWidth={"1px"}
           borderColor={"#DBDBDB"}
+          backgroundColor={"white"}
         >
           <Outlet />
         </VStack>

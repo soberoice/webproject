@@ -22,8 +22,10 @@ import {
 } from "react-icons/io5";
 import SearchDialog from "./SearchDialog";
 import { Link, useNavigate } from "react-router";
+import { useProd } from "../Providers/ProductContext";
 
 export default function NavBar() {
+  const { cart } = useProd();
   const nav = useNavigate();
   const navItems = [
     { name: "Home", link: "/" },
@@ -40,7 +42,7 @@ export default function NavBar() {
         </Box>
         <HStack display={{ lg: "flex", base: "none" }} gap={10}>
           {navItems.map((item) => (
-            <Link to={`${item.link}`} focusRing={"none"} key={item.name}>
+            <Link to={`${item.link}`} key={item.name}>
               <Text color={"#484848"} fontSize={"16px"} fontWeight="400">
                 {item.name}
               </Text>
@@ -84,7 +86,7 @@ export default function NavBar() {
                 color="white"
                 fontSize={15}
               >
-                3
+                {cart.length}
               </Circle>
             </Float>
           </Box>
@@ -110,7 +112,7 @@ export default function NavBar() {
                 <Drawer.Body>
                   <Stack gap={10}>
                     {navItems.map((item, index) => (
-                      <Link key={index} href={item.link} focusRing={"none"}>
+                      <Link key={index} to={`${item.link}`}>
                         <Text
                           color={"#484848"}
                           fontSize={"16px"}
@@ -144,7 +146,7 @@ export default function NavBar() {
                       />
                       <Float>
                         <Circle size="4" bg="red" color="white" fontSize={15}>
-                          3
+                          {cart.length}
                         </Circle>
                       </Float>
                     </Box>

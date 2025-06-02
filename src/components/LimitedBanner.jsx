@@ -5,22 +5,22 @@ export default function LimitedBanner() {
   const items = [
     {
       name: "High Quality",
-      image: "./quality.png",
+      image: "/quality.png",
       info: "crafted from top materials",
     },
     {
       name: "Warrany Protection",
-      image: "./warranty.png",
+      image: "/warranty.png",
       info: "Over 2 years",
     },
     {
       name: "Free Shipping",
-      image: "./shipping.png",
+      image: "/shipping.png",
       info: "Order over 150 $",
     },
     {
       name: "24 / 7 Support",
-      image: "./support.png",
+      image: "/support.png",
       info: "Dedicated support",
     },
   ];
@@ -39,7 +39,7 @@ export default function LimitedBanner() {
       >
         <Image
           height={{ md: "479px", sm: "500px", base: "320px" }}
-          src="./image (4).png"
+          src="/image (4).png"
         />
         <Box
           height={{ lg: "100%", base: "2px" }}

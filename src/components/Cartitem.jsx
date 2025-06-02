@@ -1,5 +1,6 @@
 import {
   Box,
+  For,
   HStack,
   IconButton,
   Image,
@@ -8,20 +9,19 @@ import {
   Table,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { LuMinus, LuPlus } from "react-icons/lu";
+import { useProd } from "../Providers/ProductContext";
 
-export default function Cartitem() {
-  const items = [
-    {
-      id: 1,
-      name: "Mini dress with ruffled straps",
-      price: 79.99,
-      total: 79.99,
-      image: "product.png",
-      color: "red",
-    },
-  ];
+export default function Cartitem({ setSubTotal }) {
+  const { cart, removeCart } = useProd();
+  useEffect(() => {
+    const total = cart.reduce(
+      (acc, item) => acc + item.quantity * item.prod.price,
+      0
+    );
+    setSubTotal(total);
+  }, [cart]);
   return (
     <Box
       w={"100%"}
@@ -46,31 +46,36 @@ export default function Cartitem() {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {items.map((item) => (
-            <Table.Row key={item.id} bg={"transparent"} height={"250px"}>
+          {cart?.map((item) => (
+            <Table.Row
+              key={item.id}
+              bg={"transparent"}
+              height={{ lg: "200px", base: "auto" }}
+            >
               <Table.Cell>
                 <Stack
+                  height={"200"}
                   direction={{ lg: "row", base: "column" }}
-                  width={{ lg: "80%" }}
+                  width={{ lg: "80%", base: "100%" }}
                 >
                   <Image
-                    maxWidth={{ lg: "150px", base: "70px" }}
-                    maxH={{ lg: "200px", base: "100px" }}
-                    src={item.image}
+                    w={{ lg: "150px", base: "100px" }}
+                    h={{ lg: "200px", base: "70px" }}
+                    src={`/${item.prod.image}`}
                   />
-                  <Stack gap={4}>
+                  <Stack gap={{ lg: 4, base: 0 }}>
                     <Text
                       fontSize={{ lg: "18px", base: "14px" }}
                       fontFamily="'Volkhov', serif"
                     >
-                      {item.name}
+                      {item.prod.name}
                     </Text>
                     <Text
                       fontSize={{ lg: "18px", base: "14px" }}
                       fontFamily="'Poppins', sans-serif"
                       color={"#8A8A8A"}
                     >
-                      Color: {item.color}
+                      Color: {item.prod.color}
                     </Text>
 
                     <Text
@@ -78,6 +83,8 @@ export default function Cartitem() {
                       fontFamily="'Poppins', sans-serif"
                       color={"#8A8A8A"}
                       textDecoration={"underline"}
+                      onClick={() => removeCart(item)}
+                      cursor={"pointer"}
                     >
                       Remove
                     </Text>
@@ -85,16 +92,15 @@ export default function Cartitem() {
                 </Stack>
               </Table.Cell>
               <Table.Cell>
-                <Stack height={{ base: "270px", lg: "200px" }}>
-                  ${item.price}
-                </Stack>
+                <Stack height={"100px"}>${item.prod.price.toFixed(2)}</Stack>
               </Table.Cell>
               <Table.Cell>
                 <NumberInput.Root
-                  height={{ base: "270px", lg: "200px" }}
-                  defaultValue="1"
+                  height={"100px"}
                   unstyled
                   spinOnPress={false}
+                  defaultValue={item.quantity}
+                  value={item.quantity}
                 >
                   <HStack
                     gap="2"
@@ -122,7 +128,9 @@ export default function Cartitem() {
                 </NumberInput.Root>
               </Table.Cell>
               <Table.Cell textAlign="end">
-                <Box height={{ base: "270px", lg: "200px" }}>${item.total}</Box>
+                <Box height={"100px"}>
+                  ${(item.prod.price * item.quantity).toFixed(2)}
+                </Box>
               </Table.Cell>
             </Table.Row>
           ))}

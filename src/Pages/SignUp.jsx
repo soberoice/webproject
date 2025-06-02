@@ -26,7 +26,7 @@ export default function SignUp() {
         alignItems={"center"}
         h={"full"}
       >
-        <Image width={"45%"} src="./signupimg.png" />
+        <Image width={"45%"} src="/signupimg.png" />
         <VStack width={"50%"} height={"80%"} justifyContent={"space-between"}>
           <Box width={"80%"}>
             <Image src="./FASCO.png" />

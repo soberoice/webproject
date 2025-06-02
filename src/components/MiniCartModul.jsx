@@ -5,18 +5,27 @@ import {
   CloseButton,
   Drawer,
   HStack,
+  IconButton,
+  Image,
+  NumberInput,
   Portal,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import React from "react";
+import { useProd } from "../Providers/ProductContext";
+import { LuMinus, LuPlus } from "react-icons/lu";
+import { useNavigate } from "react-router";
 
-export default function MiniCartModul() {
+export default function MiniCartModul({ data, quantity }) {
+  const { addToCart, cart } = useProd();
+  const nav = useNavigate();
   return (
-    <Drawer.Root size={"lg"}>
+    <Drawer.Root size={"md"}>
       <Drawer.Trigger asChild>
         <Button
           w={"100%"}
+          onClick={() => addToCart({ prod: data, quantity: quantity })}
           variant="outline"
           size="sm"
           color={"black"}
@@ -42,16 +51,57 @@ export default function MiniCartModul() {
               </Drawer.Title>
             </Drawer.Header>
             <Drawer.Body justifyContent={"center"}>
-              <Box w={"85%"}>
+              <Box>
                 <Text
                   flexDir={"column"}
                   color={"black"}
-                  fontSize={"26px"}
+                  fontSize={"15"}
                   fontFamily="'Poppins', sans-serif"
                   fontWeight={400}
                 >
                   Buy <b>$122.35</b> more and get <b>free shipping</b>
                 </Text>
+              </Box>
+              <Box>
+                {cart?.map((item) => (
+                  <HStack marginTop={5}>
+                    <Image
+                      maxWidth={"30%"}
+                      maxH={"150px"}
+                      src={`/${item.prod.image}`}
+                    />
+                    <Stack>
+                      <Text color={"black"}>{item.prod.name}</Text>
+                      <Text color={"black"}>color: {item.prod.color}</Text>
+                      <Text color={"black"}>${item.prod.price}</Text>
+                      <NumberInput.Root
+                        defaultValue={item.quatity}
+                        unstyled
+                        spinOnPress={false}
+                        value={item.quantity}
+                      >
+                        <HStack gap={2}>
+                          <NumberInput.DecrementTrigger asChild>
+                            <IconButton variant="outline" size="sm">
+                              <LuMinus color="black" />
+                            </IconButton>
+                          </NumberInput.DecrementTrigger>
+                          <NumberInput.ValueText
+                            textAlign="center"
+                            fontSize="lg"
+                            color={"black"}
+                            w={"30px"}
+                          />
+                          <NumberInput.IncrementTrigger asChild>
+                            <IconButton variant="outline" size="sm">
+                              <LuPlus color="black" />
+                            </IconButton>
+                          </NumberInput.IncrementTrigger>
+                        </HStack>
+                      </NumberInput.Root>
+                    </Stack>
+                  </HStack>
+                ))}
               </Box>
             </Drawer.Body>
             <Drawer.Footer justifyContent={"center"}>
@@ -68,7 +118,7 @@ export default function MiniCartModul() {
                 >
                   <Checkbox.HiddenInput />
                   <Checkbox.Control />
-                  <Checkbox.Label fontSize={"22px"}>
+                  <Checkbox.Label fontSize={"15px"}>
                     For $10.00 please wrap the product
                   </Checkbox.Label>
                 </Checkbox.Root>
@@ -98,8 +148,9 @@ export default function MiniCartModul() {
                   h={50}
                   rounded={10}
                   boxShadow={"md"}
+                  onClick={() => nav("/cart")}
                 >
-                  Sign Up
+                  Check Out
                 </Button>
               </Stack>
             </Drawer.Footer>

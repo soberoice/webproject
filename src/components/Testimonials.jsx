@@ -11,21 +11,21 @@ export default function Testimonials() {
     {
       name: "James K.",
       title: "Traveler",
-      image: "./image (1).png", // replace with actual image path
+      image: "/image (1).png", // replace with actual image path
       review:
         "You won’t regret it. I would like to personally thank you for your outstanding product. ",
     },
     {
       name: "Sarah L.",
       title: "Designer",
-      image: "./image (2).png",
+      image: "/image (2).png",
       review:
         "Exactly what I was looking for. Thank you for making it so pleasant and hassle-free! All features are great.",
     },
     {
       name: "John W.",
       title: "Developer",
-      image: "./image (1).png",
+      image: "/image (1).png",
       review:
         "This is the best investment I've made. I will recommend it to everyone. It really saves time!",
     },
