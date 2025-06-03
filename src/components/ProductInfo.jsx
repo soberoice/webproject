@@ -14,6 +14,7 @@ import React, { useEffect, useState } from "react";
 import {
   IoEye,
   IoShareSocialOutline,
+  IoStar,
   IoStarOutline,
   IoStarSharp,
 } from "react-icons/io5";
@@ -29,12 +30,13 @@ import { useProd } from "../Providers/ProductContext";
 
 export default function ProductInfo() {
   const { id } = useParams();
-  const { products } = useProd();
+  const { products, addToFavorite, inFavorite, favorite } = useProd();
   const [data, setData] = useState();
   const [mainImg, setMainImg] = useState("product.png");
   const [amount, setAmount] = useState(1);
   const [productImg, setProductImg] = useState();
   useEffect(() => {
+    console.log("favorite: ", favorite);
     console.log("prod id:", id);
     const info = products.filter((prod) => prod.id == id);
     setData(products.filter((prod) => prod.id == id));
@@ -74,8 +76,8 @@ export default function ProductInfo() {
         >
           {console.log("data: ", data)}
           <HStack
-            height={{ lg: "600px", base: "350px" }}
-            width={{ lg: "50%", base: "100%" }}
+            height={{ sm: "600px", base: "350px" }}
+            width={{ lg: "40%", base: "100%" }}
           >
             <VStack
               overflow={"scroll"}
@@ -96,8 +98,10 @@ export default function ProductInfo() {
             <Image
               src={`/${mainImg}`}
               maxH={"100%"}
+              minHeight={"100%"}
               height={"100%"}
-              minWidth={"70%"}
+              minWidth={"80%"}
+              maxWidth={"80%"}
             />
           </HStack>
           <Stack
@@ -121,7 +125,21 @@ export default function ProductInfo() {
                 >
                   {data[0]?.name}
                 </Text>
-                <IoStarOutline cursor={"pointer"} color="black" size={"18"} />
+                {!inFavorite(data[0]) ? (
+                  <IoStarOutline
+                    onClick={() => addToFavorite(data[0])}
+                    cursor={"pointer"}
+                    color="black"
+                    size={"18"}
+                  />
+                ) : (
+                  <IoStar
+                    onClick={() => addToFavorite(data[0])}
+                    cursor={"pointer"}
+                    color="black"
+                    size={"18"}
+                  />
+                )}
               </HStack>
               <HStack>
                 <RatingGroup.Root
@@ -144,7 +162,11 @@ export default function ProductInfo() {
               >
                 ${data[0]?.price}
               </Text>
-              <Text color={"#666666"} fontFamily="'Volkhov', serif">
+              <Text
+                color={"#666666"}
+                textDecoration={"line-through"}
+                fontFamily="'Volkhov', serif"
+              >
                 $55.00
               </Text>
               <Stack
@@ -182,10 +204,10 @@ export default function ProductInfo() {
               paddingX={5}
               fontFamily="'Volkhov', serif"
             >
-              <Text color={"#FF706B"} fontSize={"18px"}>
+              <Text color={"#FF706B"} fontSize={"15px"}>
                 Hurry up! Sale ends in:
               </Text>
-              <Text color={"#FF706B"} fontSize={"18px"}>
+              <Text color={"#FF706B"} fontSize={"15px"}>
                 00 : 05 : 56 : 40
               </Text>
             </HStack>

@@ -8,6 +8,7 @@ export const ProductProvider = ({ children }) => {
   //   const [productArray, setProductArray] = useState([]);
   //   const [continueArray, setContinueArray] = useState([]);
   const [cart, setCart] = useState([]);
+  const [favorite, setFavorite] = useState([]);
 
   const products = [
     {
@@ -86,35 +87,50 @@ export const ProductProvider = ({ children }) => {
     }
   }
 
+  function inFavorite(item) {
+    const exists = favorite.some((i) => i.id === item.id);
+    return exists;
+  }
+
+  function addToFavorite(item) {
+    console.log("item: ", item);
+    const exist = inFavorite(item);
+    if (exist) {
+      setFavorite(favorite.filter((i) => i.id !== item.id));
+    } else {
+      setFavorite((prev) => [...prev, item]);
+    }
+  }
+
   function inCart(itemId) {
     const exists = cart.some((i) => i?.prod.id === itemId);
     return exists;
   }
 
-  //   const addToContinueList = (item) => {
-  //     setContinueArray((prev) => [...prev, item]);
-  //   };
+  // const addToContinueList = (item) => {
+  //   setContinueArray((prev) => [...prev, item]);
+  // };
 
-  //   const removeFromContinue = (item) => {
-  //     setContinueArray((prev) => prev.filter((i) => i?.epId !== item?.epId));
-  //   };
+  // const removeFromContinue = (item) => {
+  //   setContinueArray((prev) => prev.filter((i) => i?.epId !== item?.epId));
+  // };
 
-  //   function addToContinue(item) {
-  //     console.log("anime :", item);
-  //     console.log(continueArray);
-  //     const exists = inContinue(item?.epId);
-  //     if (exists) {
-  //       removeFromContinue(item);
-  //       addToContinueList(item);
-  //     } else {
-  //       addToContinueList(item);
-  //     }
+  // function addToContinue(item) {
+  //   console.log("anime :", item);
+  //   console.log(continueArray);
+  //   const exists = inContinue(item?.epId);
+  //   if (exists) {
+  //     removeFromContinue(item);
+  //     addToContinueList(item);
+  //   } else {
+  //     addToContinueList(item);
   //   }
+  // }
 
-  //   function inContinue(itemId) {
-  //     const exists = continueArray.some((i) => i?.epId === itemId);
-  //     return exists;
-  //   }
+  // function inContinue(itemId) {
+  //   const exists = continueArray.some((i) => i?.epId === itemId);
+  //   return exists;
+  // }
 
   return (
     <ProductContext.Provider
@@ -123,6 +139,9 @@ export const ProductProvider = ({ children }) => {
         addToCart,
         removeCart,
         cart,
+        addToFavorite,
+        inFavorite,
+        favorite,
       }}
     >
       {children}

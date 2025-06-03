@@ -11,7 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { LuCreditCard } from "react-icons/lu";
 import { usePaymentInputs } from "react-payment-inputs";
 
@@ -43,7 +43,11 @@ export default function PaymentInfoForm() {
         <Text color={"#484848"}>Card</Text>
         <HStack>
           <Image src="card.png" />
-          <IoIosArrowDown color="black" />
+          {toggleCard ? (
+            <IoIosArrowDown color="black" />
+          ) : (
+            <IoIosArrowUp color="black" />
+          )}
         </HStack>
       </Stack>
       <Box

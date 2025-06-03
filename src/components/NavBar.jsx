@@ -60,72 +60,80 @@ export default function NavBar() {
         >
           Sign Up
         </Button> */}
-        <Box display={{ lg: "none", base: "flex" }}>
-          <SearchDialog />
-        </Box>
-        <HStack
-          color={"#484848"}
-          fontSize={22}
-          gap={6}
-          display={{ lg: "flex", base: "none" }}
-        >
-          <SearchDialog />
-          <IoPersonOutline cursor={"pointer"} />
-          <IoIosStarOutline cursor={"pointer"} />
+        <Box display={"flex"} alignItems={"center"}>
+          <Box display={{ lg: "none", base: "flex" }}>
+            <SearchDialog />
+          </Box>
+          <HStack
+            color={"#484848"}
+            fontSize={22}
+            gap={6}
+            display={{ lg: "flex", base: "none" }}
+          >
+            <SearchDialog />
+            <IoPersonOutline
+              cursor={"pointer"}
+              onClick={() => nav("/account")}
+            />
+            <IoIosStarOutline
+              cursor={"pointer"}
+              onClick={() => nav("/favorite")}
+            />
 
-          <Box position="relative">
-            <IoBagHandleOutline
+            <Box
+              position="relative"
               onClick={() => nav("/cart")}
               cursor={"pointer"}
-            />
-            <Float>
-              <Circle
-                fontFamily="'Volkhov', serif"
-                size="5"
-                bg="red"
-                color="white"
-                fontSize={15}
-              >
-                {cart.length}
-              </Circle>
-            </Float>
-          </Box>
-        </HStack>
-        <Drawer.Root>
-          <Drawer.Trigger asChild>
-            <IconButton
-              size="xl"
-              fontSize={40}
-              display={{ lg: "none", base: "flex" }}
             >
-              <GiHamburgerMenu />
-            </IconButton>
-          </Drawer.Trigger>
-          <Portal>
-            <Drawer.Backdrop />
-            <Drawer.Positioner>
-              <Drawer.Content
-                fontFamily="'Poppins', sans-serif"
-                backgroundColor={"white"}
+              <IoBagHandleOutline />
+              <Float>
+                <Circle
+                  fontFamily="'Volkhov', serif"
+                  size="5"
+                  bg="red"
+                  color="white"
+                  fontSize={15}
+                >
+                  {cart.length}
+                </Circle>
+              </Float>
+            </Box>
+          </HStack>
+          <Drawer.Root>
+            <Drawer.Trigger asChild>
+              <IconButton
+                size="xl"
+                fontSize={40}
+                display={{ lg: "none", base: "flex" }}
               >
-                <Drawer.Header></Drawer.Header>
-                <Drawer.Body>
-                  <Stack gap={10}>
-                    {navItems.map((item, index) => (
-                      <Link key={index} to={`${item.link}`}>
-                        <Text
-                          color={"#484848"}
-                          fontSize={"16px"}
-                          fontWeight="400"
-                        >
-                          {item.name}
-                        </Text>
-                      </Link>
-                    ))}
-                  </Stack>
-                </Drawer.Body>
-                <Drawer.Footer>
-                  {/* <Button
+                <GiHamburgerMenu />
+              </IconButton>
+            </Drawer.Trigger>
+            <Portal>
+              <Drawer.Backdrop />
+              <Drawer.Positioner>
+                <Drawer.Content
+                  fontFamily="'Poppins', sans-serif"
+                  backgroundColor={"white"}
+                >
+                  <Drawer.Header></Drawer.Header>
+                  <Drawer.Body>
+                    <Stack gap={10}>
+                      {navItems.map((item, index) => (
+                        <Link key={index} to={`${item.link}`}>
+                          <Text
+                            color={"#484848"}
+                            fontSize={"16px"}
+                            fontWeight="400"
+                          >
+                            {item.name}
+                          </Text>
+                        </Link>
+                      ))}
+                    </Stack>
+                  </Drawer.Body>
+                  <Drawer.Footer>
+                    {/* <Button
                     color={"white"}
                     backgroundColor={"black"}
                     w={150}
@@ -135,30 +143,31 @@ export default function NavBar() {
                   >
                     Sign Up
                   </Button> */}
-                  <HStack color={"#484848"} fontSize={22} gap={5}>
-                    <IoPersonOutline cursor={"pointer"} />
-                    <IoIosStarOutline cursor={"pointer"} />
+                    <HStack color={"#484848"} fontSize={22} gap={5}>
+                      <IoPersonOutline cursor={"pointer"} />
+                      <IoIosStarOutline cursor={"pointer"} />
 
-                    <Box position="relative">
-                      <IoBagHandleOutline
-                        onClick={() => nav("/cart")}
-                        cursor={"pointer"}
-                      />
-                      <Float>
-                        <Circle size="4" bg="red" color="white" fontSize={15}>
-                          {cart.length}
-                        </Circle>
-                      </Float>
-                    </Box>
-                  </HStack>
-                </Drawer.Footer>
-                <Drawer.CloseTrigger asChild>
-                  <CloseButton size="lg" color={"black"} />
-                </Drawer.CloseTrigger>
-              </Drawer.Content>
-            </Drawer.Positioner>
-          </Portal>
-        </Drawer.Root>
+                      <Box position="relative">
+                        <IoBagHandleOutline
+                          onClick={() => nav("/cart")}
+                          cursor={"pointer"}
+                        />
+                        <Float>
+                          <Circle size="4" bg="red" color="white" fontSize={15}>
+                            {cart.length}
+                          </Circle>
+                        </Float>
+                      </Box>
+                    </HStack>
+                  </Drawer.Footer>
+                  <Drawer.CloseTrigger asChild>
+                    <CloseButton size="lg" color={"black"} />
+                  </Drawer.CloseTrigger>
+                </Drawer.Content>
+              </Drawer.Positioner>
+            </Portal>
+          </Drawer.Root>
+        </Box>
       </HStack>
     </Box>
   );

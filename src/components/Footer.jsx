@@ -30,7 +30,8 @@ export default function Footer() {
           src="/image 2.png"
         />
         <Stack
-          width={{ lg: "60%", base: "100%" }}
+          width={{ lg: "60%", base: "95%" }}
+          marginX={"auto"}
           textAlign={"center"}
           height={{ lg: "330px", base: "auto" }}
           gap={5}

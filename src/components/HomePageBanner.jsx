@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 export default function HomePageBanner() {
   const nav = useNavigate();
   return (
-    <Box w={"100%"}>
+    <Box w={"100%"} marginBottom={50}>
       <Stack
         direction={"row"}
         w={"85%"}

@@ -27,21 +27,21 @@ export default function LimitedBanner() {
   return (
     <Box width={"100%"} marginTop={100} marginBottom={100}>
       <Box
-        display={"flex"}
-        direction={{ lg: "row", base: "column" }}
+        display={{ lg: "flex", md: "block" }}
+        direction={"row"}
         width={"100%"}
         padding={0}
-        height={{ sm: "500px", lg: "479px", base: "320px" }}
+        height={{ lg: "479px", md: "1100px", base: "800px" }}
         backgroundColor={"#DADADA"}
         alignItems={{ lg: "center" }}
         overflow={"hidden"}
         position={"relative"}
       >
         <Image
-          height={{ md: "479px", sm: "500px", base: "320px" }}
+          height={{ md: "700px", sm: "600px", base: "320px", lg: "479px" }}
           src="/image (4).png"
         />
-        <Box
+        {/* <Box
           height={{ lg: "100%", base: "2px" }}
           backgroundColor={"black"}
           width={{ lg: "2px", base: "100%" }}
@@ -50,8 +50,8 @@ export default function LimitedBanner() {
           right={{ lg: "50%" }}
           left={{ lg: "50%" }}
           display={{ lg: "block", base: "none" }}
-        ></Box>
-        <Stack width={"100%"} height={"90%"} alignItems={"center"}>
+        ></Box> */}
+        <Stack height={"90%"} marginTop={{ base: 30 }} alignItems={"center"}>
           <Stack width={{ lg: "70%", base: "90%" }}>
             <Text color={"#767676"} fontFamily="'Poppins', sans-serif">
               Women Collection

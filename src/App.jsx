@@ -13,6 +13,8 @@ import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { ProductProvider } from "./Providers/ProductContext";
+import Account from "./Pages/Account";
+import Favorite from "./Pages/Favorite";
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
               <Route path="/product/:id" element={<ProductPage />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/favorite" element={<Favorite />} />
             </Routes>
           </BrowserRouter>
         </Box>

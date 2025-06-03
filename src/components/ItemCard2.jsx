@@ -18,7 +18,6 @@ export default function ItemCard2() {
         <Stack
           key={index}
           cursor={"pointer"}
-          onClick={() => nav(`/product/${item.id}`)}
           fontFamily="'Poppins', sans-serif"
           shadowColor={"#ebe8e8"}
           alignItems={"center"}
@@ -34,8 +33,10 @@ export default function ItemCard2() {
           marginBottom={50}
         >
           <Image
+            onClick={() => nav(`/product/${item.id}`)}
             src={`/${item.image}`}
             minWidth={"300px"}
+            maxWidth={"300px"}
             minH={"400px"}
             maxH={"400px"}
           />
