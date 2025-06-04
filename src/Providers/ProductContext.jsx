@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
+//CONTEXT AND CONTEXT PROVIDER FOR THE PRODUCTA, ADD TO CART AND ADD TO FAVORITE FUNCTIONS
 const ProductContext = createContext();
 
 export const useProd = () => useContext(ProductContext);
@@ -23,6 +24,7 @@ export const ProductProvider = ({ children }) => {
       ],
       rating: 4.5,
       sizes: ["S", "XL"],
+      isSoldout: false,
     },
     {
       id: 2,
@@ -38,6 +40,7 @@ export const ProductProvider = ({ children }) => {
       ],
       rating: 2.9,
       sizes: ["S", "M", "L"],
+      isSoldout: true,
     },
     {
       id: 3,
@@ -53,6 +56,7 @@ export const ProductProvider = ({ children }) => {
       ],
       rating: 5,
       sizes: ["S", "M", "L", "XL"],
+      isSoldout: false,
     },
     {
       id: 4,
@@ -68,6 +72,7 @@ export const ProductProvider = ({ children }) => {
       ],
       rating: 3.5,
       sizes: ["S"],
+      isSoldout: false,
     },
     {
       id: 5,
@@ -83,6 +88,7 @@ export const ProductProvider = ({ children }) => {
       ],
       rating: 3.9,
       sizes: ["S", "M"],
+      isSoldout: false,
     },
     {
       id: 6,
@@ -98,6 +104,55 @@ export const ProductProvider = ({ children }) => {
       ],
       rating: 4,
       sizes: ["S", "M", "L"],
+      isSoldout: true,
+    },
+    {
+      id: 7,
+      name: "Red Skirt",
+      image: "59.jpg.png",
+      price: 20.99,
+      color: "red",
+      itemsLeft: 99,
+      colors: [
+        { col: "#FF6C6C", name: "Pink" },
+        { col: "#FF7629", name: "Orange" },
+        { col: "#FFF06C", name: "Yellow" },
+      ],
+      rating: 4,
+      sizes: ["S", "M", "L"],
+      isSoldout: false,
+    },
+    {
+      id: 8,
+      name: "Red Skirt",
+      image: "46.png",
+      price: 95.77,
+      color: "red",
+      itemsLeft: 12,
+      colors: [
+        { col: "#FF6C6C", name: "Pink" },
+        { col: "#FF7629", name: "Orange" },
+        { col: "#FFF06C", name: "Yellow" },
+      ],
+      rating: 4,
+      sizes: ["S", "M", "L"],
+      isSoldout: true,
+    },
+    {
+      id: 9,
+      name: "Red Skirt",
+      image: "54.png",
+      price: 102.35,
+      color: "red",
+      itemsLeft: 20,
+      colors: [
+        { col: "#FF6C6C", name: "Pink" },
+        { col: "#FF7629", name: "Orange" },
+        { col: "#FFF06C", name: "Yellow" },
+      ],
+      rating: 4,
+      sizes: ["S", "M", "L"],
+      isSoldout: false,
     },
   ];
   const addCart = (item) => {

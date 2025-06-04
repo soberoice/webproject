@@ -3,6 +3,7 @@ import {
   Button,
   HStack,
   Image,
+  RatingGroup,
   Stack,
   Text,
   Wrap,
@@ -13,6 +14,7 @@ import "@fontsource/poppins/500.css";
 import { useNavigate } from "react-router";
 import { useProd } from "../Providers/ProductContext";
 
+// ITEM CARD FOR NEW ARRIVALS SECTION IN THE HOME PAGE
 export default function ItemCard1() {
   const { products } = useProd();
   const nav = useNavigate();
@@ -25,7 +27,7 @@ export default function ItemCard1() {
       justifyContent={"space-evenly"}
       gap={10}
     >
-      {products.map((prod, index) => (
+      {products.slice(0, 6).map((prod, index) => (
         <Stack
           onClick={() => nav(`/product/${prod.id}`)}
           key={index}
@@ -62,11 +64,16 @@ export default function ItemCard1() {
               </Text>
             </Stack>
             <HStack>
-              <IoStarSharp color="#FCA120" size={20} />
-              <IoStarSharp color="#FCA120" size={20} />
-              <IoStarSharp color="#FCA120" size={20} />
-              <IoStarSharp color="#FCA120" size={20} />
-              <IoStarSharp color="#FCA120" size={20} />
+              <RatingGroup.Root
+                colorPalette={"orange"}
+                readOnly
+                count={5}
+                defaultValue={5}
+                size="sm"
+              >
+                <RatingGroup.HiddenInput />
+                <RatingGroup.Control />
+              </RatingGroup.Root>
             </HStack>
           </HStack>
           <Text

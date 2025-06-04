@@ -1,10 +1,19 @@
-import { Box, Button, HStack, Image, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  HStack,
+  Image,
+  RatingGroup,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import "@fontsource/poppins/400.css";
 import "@fontsource/volkhov/400.css";
 import { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { IoStarSharp } from "react-icons/io5";
 
+// TESTIMONIALS SECTION IN HOME PAGE
 export default function Testimonials() {
   const [active, setActive] = useState(1);
   const testimonials = [
@@ -157,9 +166,16 @@ export default function Testimonials() {
                 "{testimonials[active].review}"
               </Text>
               <HStack mx={{ base: "auto", sm: "0" }}>
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <IoStarSharp key={index} color="#FCA120" size={20} />
-                ))}
+                <RatingGroup.Root
+                  colorPalette={"orange"}
+                  readOnly
+                  count={5}
+                  defaultValue={5}
+                  size="sm"
+                >
+                  <RatingGroup.HiddenInput />
+                  <RatingGroup.Control />
+                </RatingGroup.Root>
               </HStack>
               <Box width={{ sm: "50%", base: "100%" }}>
                 <hr />

@@ -3,6 +3,7 @@ import PaginationList from "./Pagination";
 import { useNavigate } from "react-router";
 import { useProd } from "../Providers/ProductContext";
 
+//ITEM CARD FOR ITEMS IN THE SHOP PAGE
 export default function ItemCard2() {
   const nav = useNavigate();
   const { products } = useProd();
@@ -21,7 +22,7 @@ export default function ItemCard2() {
           fontFamily="'Poppins', sans-serif"
           shadowColor={"#ebe8e8"}
           alignItems={"center"}
-          height={{ lg: 530 }}
+          height={530}
           width={{ lg: "30%", md: "45%", base: "100%" }}
           style={{
             backgroundColor: "white",
@@ -30,7 +31,7 @@ export default function ItemCard2() {
             padding: 15,
           }}
           justifyContent={"space-evenly"}
-          marginBottom={50}
+          position={"relative"}
         >
           <Image
             onClick={() => nav(`/product/${item.id}`)}
@@ -40,6 +41,23 @@ export default function ItemCard2() {
             minH={"400px"}
             maxH={"400px"}
           />
+          {item.isSoldout && (
+            <Stack
+              width={54}
+              height={54}
+              backgroundColor={"#B1B1B1"}
+              borderRadius={100}
+              position={"absolute"}
+              bottom={"55%"}
+              justifyContent={"center"}
+              fontSize={"12px"}
+              fontWeight={"800"}
+              textAlign={"center"}
+              lineHeight={"12px"}
+            >
+              SOLD OUT
+            </Stack>
+          )}
           <VStack
             justifyContent={"space-between"}
             w={"300px"}

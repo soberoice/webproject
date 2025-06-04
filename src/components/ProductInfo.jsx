@@ -71,7 +71,6 @@ export default function ProductInfo() {
           display={"flex"}
           flexDirection={{ lg: "row", base: "column" }}
           justifyContent={"center"}
-          alignItems={"center"}
           gap={{ lg: 0, base: 5 }}
           marginX={"auto"}
         >

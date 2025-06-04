@@ -205,7 +205,7 @@ export default function ShopItems() {
             ))}
           </Accordion.Root>
         </Box>
-        <Box width={{ lg: "70%", base: "100%" }}>
+        <Box width={{ lg: "80%", base: "100%" }}>
           <HStack>
             <FilterDialogBox />
             <Text
