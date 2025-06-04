@@ -6,6 +6,12 @@ import { useNavigate } from "react-router";
 
 export default function HomePageBanner() {
   const nav = useNavigate();
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <Box w={"100%"} marginBottom={50}>
       <Stack
@@ -74,6 +80,7 @@ export default function HomePageBanner() {
           rounded={50}
           borderWidth={2}
           borderColor={"black"}
+          onClick={() => scrollToTop()}
         >
           <Image height={26} width={22} src="./VectorArrowUp.png" />
         </Button>

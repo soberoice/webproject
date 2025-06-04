@@ -31,7 +31,7 @@ export default function LimitedBanner() {
         direction={"row"}
         width={"100%"}
         padding={0}
-        height={{ lg: "479px", md: "1100px", base: "800px" }}
+        height={{ lg: "479px", md: "1100px", base: "850px" }}
         backgroundColor={"#DADADA"}
         alignItems={{ lg: "center" }}
         overflow={"hidden"}

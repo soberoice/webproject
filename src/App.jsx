@@ -11,17 +11,28 @@ import UpdatePassward from "./components/UpdatePassward";
 import ProductPage from "./Pages/ProductPage";
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router";
 import { ProductProvider } from "./Providers/ProductContext";
 import Account from "./Pages/Account";
 import Favorite from "./Pages/Favorite";
+import { useEffect } from "react";
 
 function App() {
+  const ScrollToTopOnRouteChange = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [pathname]);
+
+    return null;
+  };
   return (
     <Provider>
       <ProductProvider>
         <Box bg="white" minH="100vh">
           <BrowserRouter>
+            <ScrollToTopOnRouteChange />
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/signup" element={<SignUp />} />

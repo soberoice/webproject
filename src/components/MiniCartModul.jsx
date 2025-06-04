@@ -17,7 +17,7 @@ import { useProd } from "../Providers/ProductContext";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import { useNavigate } from "react-router";
 
-export default function MiniCartModul({ data, quantity }) {
+export default function MiniCartModul({ data, quantity, color }) {
   const { addToCart, cart } = useProd();
   const nav = useNavigate();
   return (
@@ -25,7 +25,9 @@ export default function MiniCartModul({ data, quantity }) {
       <Drawer.Trigger asChild>
         <Button
           w={"100%"}
-          onClick={() => addToCart({ prod: data, quantity: quantity })}
+          onClick={() =>
+            addToCart({ prod: data, quantity: quantity, color: color })
+          }
           variant="outline"
           size="sm"
           color={"black"}
@@ -64,23 +66,23 @@ export default function MiniCartModul({ data, quantity }) {
               </Box>
               <Box>
                 {cart?.map((item) => (
-                  <HStack marginTop={5}>
+                  <HStack marginTop={5} key={item.prod.id}>
                     <Image
-                      maxWidth={"30%"}
-                      maxH={"150px"}
+                      width={"100px"}
+                      height={"150px"}
                       src={`/${item.prod.image}`}
                     />
                     <Stack>
                       <Text color={"black"}>{item.prod.name}</Text>
-                      <Text color={"black"}>color: {item.prod.color}</Text>
-                      <Text color={"black"}>${item.prod.price}</Text>
+                      <Text color={"black"}>color: {item.color}</Text>
+                      <Text color={"black"}>${item.prod.price.toFixed(2)}</Text>
                       <NumberInput.Root
                         defaultValue={item.quatity}
                         unstyled
                         spinOnPress={false}
                         value={item.quantity}
                       >
-                        <HStack gap={2}>
+                        <HStack gap={0}>
                           <NumberInput.DecrementTrigger asChild>
                             <IconButton variant="outline" size="sm">
                               <LuMinus color="black" />
@@ -111,9 +113,8 @@ export default function MiniCartModul({ data, quantity }) {
                 justifyContent={"space-between"}
               >
                 <Checkbox.Root
-                  colorPalette={"grey"}
                   color={"black"}
-                  variant={"subtle"}
+                  variant={"solid"}
                   fontFamily="'Poppins', sans-serif"
                 >
                   <Checkbox.HiddenInput />

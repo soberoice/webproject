@@ -5,8 +5,6 @@ const ProductContext = createContext();
 export const useProd = () => useContext(ProductContext);
 
 export const ProductProvider = ({ children }) => {
-  //   const [productArray, setProductArray] = useState([]);
-  //   const [continueArray, setContinueArray] = useState([]);
   const [cart, setCart] = useState([]);
   const [favorite, setFavorite] = useState([]);
 
@@ -18,6 +16,13 @@ export const ProductProvider = ({ children }) => {
       price: 30.99,
       color: "Blue",
       itemsLeft: 10,
+      colors: [
+        { col: "#FF6C6C", name: "Pink" },
+        { col: "#FF7629", name: "Orange" },
+        { col: "#FFF06C", name: "Yellow" },
+      ],
+      rating: 4.5,
+      sizes: ["S", "XL"],
     },
     {
       id: 2,
@@ -26,6 +31,13 @@ export const ProductProvider = ({ children }) => {
       price: 75.3,
       color: "red",
       itemsLeft: 44,
+      colors: [
+        { col: "#FF6C6C", name: "Pink" },
+        { col: "#FF7629", name: "Orange" },
+        { col: "#FFF06C", name: "Yellow" },
+      ],
+      rating: 2.9,
+      sizes: ["S", "M", "L"],
     },
     {
       id: 3,
@@ -34,30 +46,58 @@ export const ProductProvider = ({ children }) => {
       price: 44.99,
       color: "black",
       itemsLeft: 33,
+      colors: [
+        { col: "#FF6C6C", name: "Pink" },
+        { col: "#FF7629", name: "Orange" },
+        { col: "#FFF06C", name: "Yellow" },
+      ],
+      rating: 5,
+      sizes: ["S", "M", "L", "XL"],
     },
     {
       id: 4,
       name: "Orange",
       image: "image-3.png",
-      price: 30.99,
+      price: 70.35,
       color: "orange",
       itemsLeft: 4,
+      colors: [
+        { col: "#FF6C6C", name: "Pink" },
+        { col: "#FF7629", name: "Orange" },
+        { col: "#FFF06C", name: "Yellow" },
+      ],
+      rating: 3.5,
+      sizes: ["S"],
     },
     {
       id: 5,
       name: "Blue jacket",
       image: "image-6.png",
-      price: 75.3,
+      price: 29.3,
       color: "blue",
       itemsLeft: 58,
+      colors: [
+        { col: "#FF6C6C", name: "Pink" },
+        { col: "#FF7629", name: "Orange" },
+        { col: "#FFF06C", name: "Yellow" },
+      ],
+      rating: 3.9,
+      sizes: ["S", "M"],
     },
     {
       id: 6,
       name: "Red Skirt",
       image: "image-4.png",
-      price: 44.99,
+      price: 100.99,
       color: "red",
       itemsLeft: 90,
+      colors: [
+        { col: "#FF6C6C", name: "Pink" },
+        { col: "#FF7629", name: "Orange" },
+        { col: "#FFF06C", name: "Yellow" },
+      ],
+      rating: 4,
+      sizes: ["S", "M", "L"],
     },
   ];
   const addCart = (item) => {
@@ -88,7 +128,7 @@ export const ProductProvider = ({ children }) => {
   }
 
   function inFavorite(item) {
-    const exists = favorite.some((i) => i.id === item.id);
+    const exists = favorite.some((i) => i?.id == item?.id);
     return exists;
   }
 
@@ -106,31 +146,6 @@ export const ProductProvider = ({ children }) => {
     const exists = cart.some((i) => i?.prod.id === itemId);
     return exists;
   }
-
-  // const addToContinueList = (item) => {
-  //   setContinueArray((prev) => [...prev, item]);
-  // };
-
-  // const removeFromContinue = (item) => {
-  //   setContinueArray((prev) => prev.filter((i) => i?.epId !== item?.epId));
-  // };
-
-  // function addToContinue(item) {
-  //   console.log("anime :", item);
-  //   console.log(continueArray);
-  //   const exists = inContinue(item?.epId);
-  //   if (exists) {
-  //     removeFromContinue(item);
-  //     addToContinueList(item);
-  //   } else {
-  //     addToContinueList(item);
-  //   }
-  // }
-
-  // function inContinue(itemId) {
-  //   const exists = continueArray.some((i) => i?.epId === itemId);
-  //   return exists;
-  // }
 
   return (
     <ProductContext.Provider

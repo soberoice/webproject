@@ -35,12 +35,16 @@ export default function ProductInfo() {
   const [mainImg, setMainImg] = useState("product.png");
   const [amount, setAmount] = useState(1);
   const [productImg, setProductImg] = useState();
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState();
   useEffect(() => {
     console.log("favorite: ", favorite);
     console.log("prod id:", id);
     const info = products.filter((prod) => prod.id == id);
-    setData(products.filter((prod) => prod.id == id));
+    setData(products.filter((prod) => prod.id == id)[0]);
     setMainImg(info[0].image);
+    setSelectedColor(info[0].colors[0].name);
+    setSelectedSize(info[0].sizes[0]);
     setProductImg([
       info[0].image,
       "product.png",
@@ -59,10 +63,6 @@ export default function ProductInfo() {
       setAmount(amount + 1);
     }
   }
-  const sizes = ["S", "M", "L", "XL"];
-  const [selectedSize, setSelectedSize] = useState(sizes[0]);
-  const colors = ["#FF6C6C", "#FF7629", "#FFF06C"];
-  const [selectedColor, setSelectedColor] = useState(colors[0]);
   return (
     <Box width={"100%"} minHeight={"800px"}>
       {data && (
@@ -71,6 +71,7 @@ export default function ProductInfo() {
           display={"flex"}
           flexDirection={{ lg: "row", base: "column" }}
           justifyContent={"center"}
+          alignItems={"center"}
           gap={{ lg: 0, base: 5 }}
           marginX={"auto"}
         >
@@ -86,9 +87,10 @@ export default function ProductInfo() {
               width={"10%"}
               gap={5}
             >
-              {productImg.map((img) => (
+              {productImg.map((img, index) => (
                 <Image
                   src={`/${img}`}
+                  key={index}
                   minWidth={"100%"}
                   cursor={"pointer"}
                   onClick={() => setMainImg(img)}
@@ -123,18 +125,18 @@ export default function ProductInfo() {
                   fontFamily="'Volkhov', serif"
                   fontSize={"30px"}
                 >
-                  {data[0]?.name}
+                  {data?.name}
                 </Text>
-                {!inFavorite(data[0]) ? (
+                {!inFavorite(data) ? (
                   <IoStarOutline
-                    onClick={() => addToFavorite(data[0])}
+                    onClick={() => addToFavorite(data)}
                     cursor={"pointer"}
                     color="black"
                     size={"18"}
                   />
                 ) : (
                   <IoStar
-                    onClick={() => addToFavorite(data[0])}
+                    onClick={() => addToFavorite(data)}
                     cursor={"pointer"}
                     color="black"
                     size={"18"}
@@ -146,7 +148,7 @@ export default function ProductInfo() {
                   colorPalette={"red"}
                   readOnly
                   count={5}
-                  defaultValue={5}
+                  defaultValue={data.rating}
                   size="sm"
                 >
                   <RatingGroup.HiddenInput />
@@ -160,7 +162,7 @@ export default function ProductInfo() {
                 color={"black"}
                 fontFamily="'Volkhov', serif"
               >
-                ${data[0]?.price}
+                ${data?.price.toFixed(2)}
               </Text>
               <Text
                 color={"#666666"}
@@ -218,7 +220,7 @@ export default function ProductInfo() {
                 fontSize={"16px"}
                 fontFamily="'Poppins', sans-serif"
               >
-                Only <b>{data[0].itemsLeft}</b> item(s) left in stock!
+                Only <b>{data.itemsLeft}</b> item(s) left in stock!
               </Text>
               <Box
                 rounded={5}
@@ -228,7 +230,7 @@ export default function ProductInfo() {
               >
                 <Box
                   rounded={5}
-                  width={`${data[0].itemsLeft}%`}
+                  width={`${data.itemsLeft}%`}
                   height={"5px"}
                   backgroundColor={"#EF2D2D"}
                 ></Box>
@@ -239,8 +241,9 @@ export default function ProductInfo() {
                 Size: {selectedSize}
               </Text>
               <HStack>
-                {sizes.map((size) => (
+                {data.sizes.map((size) => (
                   <Button
+                    key={size}
                     color={selectedSize === size ? "#fff" : "#8A8A8A"}
                     borderWidth={"1px"}
                     borderColor={selectedSize !== size && "#8A8A8A"}
@@ -256,12 +259,13 @@ export default function ProductInfo() {
             </Stack>
             <Box width={"100%"}>
               <Text fontFamily="'Volkhov', serif" color={"#000"} width={"100%"}>
-                Color
+                Color: {selectedColor}
               </Text>
               <HStack flexWrap={"wrap"} gap={2}>
-                {colors.map((col) => (
+                {data.colors.map((color) => (
                   <Box
-                    borderWidth={selectedColor === col ? 2 : 0}
+                    key={color.col}
+                    borderWidth={selectedColor === color.name ? 2 : 0}
                     borderColor={"black"}
                     borderRadius={"20px"}
                     padding={1}
@@ -270,8 +274,8 @@ export default function ProductInfo() {
                       width={"30px"}
                       height={"30px"}
                       borderRadius={"15px"}
-                      backgroundColor={col}
-                      onClick={() => setSelectedColor(col)}
+                      backgroundColor={color.col}
+                      onClick={() => setSelectedColor(color.name)}
                     ></Box>
                   </Box>
                 ))}
@@ -319,7 +323,11 @@ export default function ProductInfo() {
                     </HStack>
                   </NumberInput.Root>
                   <Box width={"60%"}>
-                    <MiniCartModul data={data[0]} quantity={amount} />
+                    <MiniCartModul
+                      data={data}
+                      quantity={amount}
+                      color={selectedColor}
+                    />
                   </Box>
                 </HStack>
               </HStack>

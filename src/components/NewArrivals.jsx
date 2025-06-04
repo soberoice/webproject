@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import ItemCard1 from "./ItemCard1";
 import "@fontsource/volkhov/400.css";
 import "@fontsource/poppins/400.css";
+import { useNavigate } from "react-router";
 export default function NewArrivals() {
+  const navigate = useNavigate();
   const buttons = [
     "Men’s Fashion",
     "Women’s Fashion",
@@ -84,6 +86,7 @@ export default function NewArrivals() {
         boxShadow={"md"}
         fontFamily="'Poppins', sans-serif"
         marginTop={50}
+        onClick={() => navigate("/shop")}
       >
         View More
       </Button>

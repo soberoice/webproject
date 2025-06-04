@@ -7,13 +7,14 @@ import {
   Text,
   Wrap,
 } from "@chakra-ui/react";
-import React from "react";
 import { IoStarSharp } from "react-icons/io5";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
 import { useNavigate } from "react-router";
+import { useProd } from "../Providers/ProductContext";
 
-export default function ItemCard1({ img }) {
+export default function ItemCard1() {
+  const { products } = useProd();
   const nav = useNavigate();
   return (
     <Stack
@@ -24,9 +25,9 @@ export default function ItemCard1({ img }) {
       justifyContent={"space-evenly"}
       gap={10}
     >
-      {Array.from({ length: 6 }).map((_, index) => (
+      {products.map((prod, index) => (
         <Stack
-          onClick={() => nav(`/product/${index + 1}`)}
+          onClick={() => nav(`/product/${prod.id}`)}
           key={index}
           boxShadow="0px 10px 20px rgba(0, 0, 0, 0.1)"
           fontFamily="'Poppins', sans-serif"
@@ -42,14 +43,19 @@ export default function ItemCard1({ img }) {
           }}
           justifyContent={"space-evenly"}
         >
-          <Image src={img} width={"335px"} />
+          <Image
+            borderRadius={15}
+            src={prod.image}
+            width={"335px"}
+            height={"240px"}
+          />
           <HStack
             justifyContent={"space-between"}
             w={{ lg: "335px", base: "100%" }}
           >
             <Stack gap={0}>
               <Text color={"#484848"} fontSize={"20px"} fontWeight={"500"}>
-                Long Dress
+                {prod.name}
               </Text>
               <Text color={"#8A8A8A"} fontSize={"12px"}>
                 Al Karam
@@ -76,7 +82,7 @@ export default function ItemCard1({ img }) {
             w={{ lg: "335px", base: "100%" }}
           >
             <Text color={"#484848"} fontSize={"24px"} fontWeight={"500"}>
-              $95.50
+              ${prod.price.toFixed(2)}
             </Text>
             <Text color={"#FF4646"} fontSize={"12px"}>
               Almost Sold Out

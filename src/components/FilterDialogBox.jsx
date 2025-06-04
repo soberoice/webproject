@@ -62,13 +62,10 @@ export default function FilterDialogBox() {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <IconButton
-          size="xl"
-          fontSize={40}
-          display={{ lg: "none", base: "flex" }}
-        >
+        <Button size="xl" display={{ lg: "none", base: "flex" }}>
           <GiHamburgerMenu />
-        </IconButton>
+          Filter
+        </Button>
       </Dialog.Trigger>
       <Portal>
         <Dialog.Backdrop />

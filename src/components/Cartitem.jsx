@@ -48,7 +48,7 @@ export default function Cartitem({ setSubTotal }) {
         <Table.Body>
           {cart?.map((item) => (
             <Table.Row
-              key={item.id}
+              key={item.prod.id}
               bg={"transparent"}
               height={{ lg: "200px", base: "auto" }}
             >
@@ -56,11 +56,11 @@ export default function Cartitem({ setSubTotal }) {
                 <Stack
                   height={"200"}
                   direction={{ lg: "row", base: "column" }}
-                  width={{ lg: "80%", base: "100%" }}
+                  width={{ lg: "80%", base: "75px" }}
                 >
                   <Image
                     w={{ lg: "150px", base: "100px" }}
-                    h={{ lg: "200px", base: "70px" }}
+                    h={{ lg: "200px", base: "105px" }}
                     src={`/${item.prod.image}`}
                   />
                   <Stack gap={{ lg: 4, base: 0 }}>
@@ -102,12 +102,7 @@ export default function Cartitem({ setSubTotal }) {
                   defaultValue={item.quantity}
                   value={item.quantity}
                 >
-                  <HStack
-                    gap="2"
-                    borderWidth={"1px"}
-                    width={"125px"}
-                    rounded={5}
-                  >
+                  <HStack borderWidth={"1px"} width={"115px"} rounded={5}>
                     <NumberInput.DecrementTrigger asChild>
                       <IconButton variant="outline" size="sm" border={"none"}>
                         <LuMinus color="black" />
@@ -115,7 +110,7 @@ export default function Cartitem({ setSubTotal }) {
                     </NumberInput.DecrementTrigger>
                     <NumberInput.ValueText
                       textAlign="center"
-                      fontSize="lg"
+                      fontSize="sm"
                       minW="3ch"
                       color={"black"}
                     />

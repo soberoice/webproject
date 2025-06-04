@@ -50,7 +50,7 @@ export default function ItemCard2() {
                 {item.name}
               </Text>
               <Text color={"#000000"} fontSize={"16px"}>
-                ${item.price}
+                ${item.price.toFixed(2)}
               </Text>
             </Stack>
             <HStack>
