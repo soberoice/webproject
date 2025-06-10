@@ -15,7 +15,10 @@ import { useProd } from "../Providers/ProductContext";
 export default function CheckoutItem() {
   const { cart } = useProd();
   return (
-    <Box width={{ lg: "70%", md: "80%", base: "100%" }}>
+    <Box
+      width={{ lg: "70%", md: "80%", base: "100%" }}
+      marginX={{ base: "auto", lg: 0 }}
+    >
       {cart?.map((item) => (
         <HStack marginTop={5} w={"100%"}>
           <Box position="relative" w="137px" h="137px" bg="bg.emphasized">

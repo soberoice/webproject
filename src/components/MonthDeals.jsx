@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box, Button, HStack, Image, Stack, Text } from "@chakra-ui/react";
@@ -10,8 +10,28 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function MonthDeals() {
   const MotionImage = motion.create(Image);
-  const images = ["/image (2).png", "/image (1).png", "/image (2).png"];
+  const images = [
+    "/image (2).png",
+    "/image (1).png",
+    "/image-2.png",
+    "/image-3.png",
+  ];
   const [active, setActive] = useState(0);
+  useEffect(() => {
+    setActive(0);
+  }, []);
+  useEffect(() => {
+    function autoSlide() {
+      let nextIndex = active + 1;
+
+      if (nextIndex >= images.length) {
+        setActive(0);
+      } else setActive(nextIndex);
+    }
+    const interval = setTimeout(() => autoSlide(), 3000);
+
+    return () => clearInterval(interval);
+  }, [active]);
 
   function handleForward() {
     if (active === 2) {
@@ -94,32 +114,25 @@ export default function MonthDeals() {
         </HStack>
       </Stack>
 
-      <HStack
-        width={{ lg: "100%", base: "80%" }}
-        overflow={"hidden"}
-        gap={5}
-        justifyContent={"center"}
-      >
+      <HStack width={{ lg: "100%", base: "70%" }} overflow={"hidden"} gap={5}>
         <AnimatePresence mode="wait">
           <MotionImage
             key={images[active]}
             src={images[active]}
-            h="580px"
-            maxW="400px"
-            alignSelf="start"
+            h={{ lg: "580px", base: "500px" }}
+            w={"400px"}
             initial={{ opacity: 1, x: 1 }}
             animate={{ opacity: 1, x: 1 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.2 }}
           />
         </AnimatePresence>
-
         <Stack
           height="580px"
           display={{ lg: "flex", base: "none" }}
           justifyContent="space-between"
         >
-          <Stack direction="row" gap={5}>
+          <Stack direction="row" gap={5} w={"0"}>
             {images.map(
               (image, index) =>
                 active !== index && (
@@ -141,7 +154,7 @@ export default function MonthDeals() {
             )}
           </Stack>
           <HStack>
-            {Array.from({ length: 3 }).map((_, index) => (
+            {Array.from({ length: 4 }).map((_, index) => (
               <Box
                 onClick={() => setActive(index)}
                 key={index}

@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Circle,
   CloseButton,
   Drawer,
@@ -57,6 +58,7 @@ export default function NavBar() {
           rounded={10}
           boxShadow={"md"}
           display={{ lg: "flex", base: "none" }}
+          onClick={() => nav("/signup")}
         >
           Sign Up
         </Button> */}
@@ -134,15 +136,16 @@ export default function NavBar() {
                   </Drawer.Body>
                   <Drawer.Footer>
                     {/* <Button
-                    color={"white"}
-                    backgroundColor={"black"}
-                    w={150}
-                    h={50}
-                    rounded={10}
-                    boxShadow={"md"}
-                  >
-                    Sign Up
-                  </Button> */}
+                      color={"white"}
+                      backgroundColor={"black"}
+                      w={150}
+                      h={50}
+                      rounded={10}
+                      boxShadow={"md"}
+                      onClick={() => nav("/signup")}
+                    >
+                      Sign Up
+                    </Button> */}
                     <HStack color={"#484848"} fontSize={22} gap={5}>
                       <IoPersonOutline cursor={"pointer"} />
                       <IoIosStarOutline cursor={"pointer"} />

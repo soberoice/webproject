@@ -32,7 +32,7 @@ export const ProductProvider = ({ children }) => {
       image: "image.png",
       price: 75.3,
       color: "red",
-      itemsLeft: 44,
+      itemsLeft: 0,
       colors: [
         { col: "#FF6C6C", name: "Pink" },
         { col: "#FF7629", name: "Orange" },
@@ -96,7 +96,7 @@ export const ProductProvider = ({ children }) => {
       image: "image-4.png",
       price: 100.99,
       color: "red",
-      itemsLeft: 90,
+      itemsLeft: 0,
       colors: [
         { col: "#FF6C6C", name: "Pink" },
         { col: "#FF7629", name: "Orange" },

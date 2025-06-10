@@ -39,6 +39,7 @@ export default function LimitedBanner() {
       >
         <Image
           height={{ md: "700px", sm: "600px", base: "320px", lg: "479px" }}
+          width={{ lg: "50%", xl: "auto" }}
           src="/image (4).png"
         />
         {/* <Box

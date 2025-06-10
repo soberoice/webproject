@@ -205,10 +205,10 @@ export default function ProductInfo() {
               paddingX={5}
               fontFamily="'Volkhov', serif"
             >
-              <Text color={"#FF706B"} fontSize={"15px"}>
+              <Text color={"#FF706B"} fontSize={"14px"}>
                 Hurry up! Sale ends in:
               </Text>
-              <Text color={"#FF706B"} fontSize={"15px"}>
+              <Text color={"#FF706B"} fontSize={"14px"}>
                 00 : 05 : 56 : 40
               </Text>
             </HStack>

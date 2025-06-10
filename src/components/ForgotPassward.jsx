@@ -28,6 +28,7 @@ export default function ForgotPassward() {
         alignItems={"center"}
         width={"80%"}
         gap={5}
+        height={"70%"}
       >
         <Text
           fontFamily="'Volkhov', serif"
@@ -38,10 +39,14 @@ export default function ForgotPassward() {
           Forget Passward
         </Text>
         <form
-          className="flex items-center w-full flex-col gap-10"
+          className="flex items-center w-full flex-col gap-10 h-full"
           onSubmit={() => nav("/signin/entercode")}
         >
-          <HStack width={"100%"} height={"50px"} flexWrap={"wrap"}>
+          <HStack
+            width={"100%"}
+            height={{ lg: "50px", base: "70px" }}
+            flexWrap={"wrap"}
+          >
             <Input
               width={{ lg: "49%", base: "90%" }}
               placeholder="First Name"
@@ -56,7 +61,7 @@ export default function ForgotPassward() {
             />
             <Input
               width={{ lg: "49%", base: "90%" }}
-              placeholder="First Name"
+              placeholder="Last  Name"
               fontFamily="'Poppins', sans-serif"
               height={"45px"}
               rounded={0}
@@ -67,7 +72,11 @@ export default function ForgotPassward() {
               fontSize={"16px"}
             />
           </HStack>
-          <HStack width={"100%"} height={"50px"} flexWrap={"wrap"}>
+          <HStack
+            width={"100%"}
+            height={{ lg: "50px", base: "70px" }}
+            flexWrap={"wrap"}
+          >
             <Input
               width={{ lg: "49%", base: "90%" }}
               placeholder="Email Address"

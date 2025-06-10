@@ -18,7 +18,7 @@ import { useNavigate } from "react-router";
 export default function SignUp() {
   const nav = useNavigate();
   return (
-    <Box width={"100%"} height={"100vh"}>
+    <Box width={"100%"} minH={"100vh"} paddingY={50}>
       <Stack
         mx={"auto"}
         width={"90%"}
@@ -26,8 +26,16 @@ export default function SignUp() {
         alignItems={"center"}
         h={"full"}
       >
-        <Image width={"45%"} src="/signupimg.png" />
-        <VStack width={"50%"} height={"80%"} justifyContent={"space-between"}>
+        <Image
+          width={"45%"}
+          src="/signupimg.png"
+          display={{ lg: "block", base: "none" }}
+        />
+        <VStack
+          width={{ lg: "50%", base: "100%" }}
+          height={"80%"}
+          justifyContent={"space-between"}
+        >
           <Box width={"80%"}>
             <Image src="./FASCO.png" />
           </Box>
@@ -49,6 +57,7 @@ export default function SignUp() {
               width={"100%"}
               justifyContent={"space-between"}
               overflow={"hidden"}
+              flexWrap={"wrap"}
             >
               <Button
                 fontFamily="'Poppins', sans-serif"
@@ -84,9 +93,13 @@ export default function SignUp() {
           </Text>
           <Box w={"80%"} mx={"auto"}>
             <form className="flex items-center w-full flex-col gap-10">
-              <HStack width={"100%"} height={"50px"}>
+              <HStack
+                width={"100%"}
+                height={{ lg: "50px", base: "70px" }}
+                flexWrap={"wrap"}
+              >
                 <Input
-                  width={"49%"}
+                  width={{ lg: "49%", base: "100%" }}
                   placeholder="First Name"
                   fontFamily="'Poppins', sans-serif"
                   height={"45px"}
@@ -98,7 +111,7 @@ export default function SignUp() {
                   fontSize={"16px"}
                 />
                 <Input
-                  width={"49%"}
+                  width={{ lg: "49%", base: "100%" }}
                   placeholder="First Name"
                   fontFamily="'Poppins', sans-serif"
                   height={"45px"}
@@ -110,9 +123,13 @@ export default function SignUp() {
                   fontSize={"16px"}
                 />
               </HStack>
-              <HStack width={"100%"} height={"50px"}>
+              <HStack
+                width={"100%"}
+                height={{ lg: "50px", base: "70px" }}
+                flexWrap={"wrap"}
+              >
                 <Input
-                  width={"49%"}
+                  width={{ lg: "49%", base: "100%" }}
                   placeholder="Email Address"
                   fontFamily="'Poppins', sans-serif"
                   height={"45px"}
@@ -124,7 +141,7 @@ export default function SignUp() {
                   fontSize={"16px"}
                 />
                 <Input
-                  width={"49%"}
+                  width={{ lg: "49%", base: "100%" }}
                   placeholder="Phone Number"
                   fontFamily="'Poppins', sans-serif"
                   height={"45px"}
@@ -136,9 +153,13 @@ export default function SignUp() {
                   fontSize={"16px"}
                 />
               </HStack>
-              <HStack width={"100%"} height={"50px"}>
+              <HStack
+                width={"100%"}
+                height={{ lg: "50px", base: "70px" }}
+                flexWrap={"wrap"}
+              >
                 <Input
-                  width={"49%"}
+                  width={{ lg: "49%", base: "100%" }}
                   placeholder="Password"
                   fontFamily="'Poppins', sans-serif"
                   height={"45px"}
@@ -150,7 +171,7 @@ export default function SignUp() {
                   fontSize={"16px"}
                 />
                 <Input
-                  width={"49%"}
+                  width={{ lg: "49%", base: "100%" }}
                   placeholder="Confirm Password"
                   fontFamily="'Poppins', sans-serif"
                   height={"45px"}
